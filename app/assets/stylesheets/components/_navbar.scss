@@ -1,5 +1,5 @@
 /* Main navbar */
-.navbar-wagon {
+.default-navbar {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: $larder-green-lighter;
   transition: all 0.3s ease;
@@ -10,13 +10,25 @@
   justify-content: space-between;
 }
 
+.transparent-navbar {
+  transition: all 0.3s ease;
+  height: 70px;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
 }
 
 /* User Avatar */
-.navbar-wagon .avatar {
+.default-navbar .avatar, .transparent-navbar .avatar {
   height: 35px;
   width: 35px;
   border-radius: 50%;

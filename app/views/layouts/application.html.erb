@@ -10,7 +10,12 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+   <% if params[:controller] == "pages" && params[:action] == "home" %>
+      <% nav_class = "transparent-navbar" %>
+    <% else %>
+      <% nav_class =  "default-navbar"%>
+    <% end %>
+    <%= render 'shared/navbar', nav_class: nav_class %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
