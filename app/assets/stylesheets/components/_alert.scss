@@ -6,9 +6,10 @@
   margin: 0;
   text-align: center;
   color: white;
+  border: none
 }
 .alert-info {
-  background: $green;
+  background: $larder-green-darker;
 }
 .alert-warning {
   background: $red;
