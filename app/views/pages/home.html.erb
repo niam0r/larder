@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-xs-12">
           <%= form_tag(recipes_path, method: :get, :class => 'form-inline') do %>
-            <%= text_field_tag :q, nil, class: 'form-control search-style', placeholder: 'Search by ingredient...' %>
+            <%= text_field_tag :search, nil, class: 'form-control search-style', placeholder: 'Search by ingredient...' %>
             <%= button_tag(type: "submit", class: "btn btn-primary search-button") do %>
               <i class="fa fa-search"></i>
           <% end %>

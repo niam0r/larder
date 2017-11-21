@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
+gem 'pg_search'
 
 group :development, :test do
   gem 'pry-byebug'
