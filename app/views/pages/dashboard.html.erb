@@ -10,18 +10,15 @@
   <div class="row">
     <div class="col-xs-12 col-md-12 offset-md-1">
       <h3> My saved recipes </h3>
-      <% @favourite_recipes.each do |recipe| %>
+      <% @favourite_recipes.each do |favourite| %>
           <div class="product">
-            <%= cl_image_tag ingredient.recipe.photo, class:"product-image hidden-xs" %>
+            <%= cl_image_tag favourite.photo, class:"product-image hidden-xs" %>
             <div class='product-body'>
-              <h3><%= recipe.name %></h3>
-              <p><%= recipe.description %></p>
+              <h3><%= favourite.name %></h3>
+              <p><%= favourite.description %></p>
             </div>
             <ul class="list-inline product-controls hidden-sm hidden-xs">
-              <li><%= link_to edit_recipe_path(ingredient.recipe) do %>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              <% end %></li>
-              <li><%= link_to recipe_path(ingredient), method: :delete, data: { confirm: 'Are you sure?'} do %>
+              <li><%= link_to favourite_path(favourite), method: :delete, data: { confirm: 'Are you sure?'} do %>
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               <% end %></li>
             </ul>
