@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   has_many :quantities
   has_many :ingredients, through: :quantities
+  has_many :favourites
   belongs_to :user
 
   include PgSearch
