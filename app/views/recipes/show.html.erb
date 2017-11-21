@@ -11,4 +11,28 @@
   </div>
 </div>
 
+<div class="form-inline text-center">
+  <%= render 'favourites/form_favourites' %>
+</div>
 
+
+<%= content_for(:after_js) do %>
+  <script>
+  function bindSweetAlertButtonDemo() {
+    document.getElementById('sweet-alert-demo').addEventListener('click', () => {
+      swal({
+        title: "Awesome!",
+        text: "Recipe added to your dashboard",
+        icon: "success"
+      })
+    });
+  }
+  bindSweetAlertButtonDemo();
+  let createBtn = document.getElementById('sweet-alert-demo')
+  createBtn.addEventListener('click', () => {
+    document.body.addEventListener('click', () => {
+      window.location.href = "http://localhost:3000/dashboard";
+    })
+  })
+  </script>
+<% end %>

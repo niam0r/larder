@@ -52,7 +52,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-
+    @favourite = Favourite.new
   end
 
   def destroy
