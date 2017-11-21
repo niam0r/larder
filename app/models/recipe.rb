@@ -10,4 +10,6 @@ class Recipe < ApplicationRecord
     }
 
   mount_uploader :photo, PhotoUploader
+
+  accepts_nested_attributes_for :quantities
 end

@@ -1,3 +1,4 @@
+
 <h1>recipes index</h1>
 
 <%= form_tag recipes_path, method: "get" do %>
@@ -9,9 +10,24 @@
 <!-- then add a text field tag for the search to display instance variable of search (in the recipes controller) and if there is nothing have a placeholder in the search box -->
 <!--  create the button for someone to submit with bootstrap-->
 
-<% @recipes.each do |recipe| %>
- <p> <%= recipe.name %> </p>
-<%end%>
+<div class="container cards">
+  <div class="row">
+      <% @recipes.each do |recipe| %>
+        <div class="col-xs-12">
+          <%= link_to recipe_path(recipe) do %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+              <div class="card-category"><%= recipe.cuisine %></div>
+              <div class="card-description">
+                <h2><%= recipe.name %></h2>
+                <p><%= recipe.description %></p>
+              </div>
+              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+   </div>
+</div>
 
 
 

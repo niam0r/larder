@@ -5,6 +5,10 @@
   <%= f.input :cuisine %>
   <%= f.input :servings %>
   <%= f.input :photo %>
+  <%= f.fields_for :quantities do |q| %>
+    <%= q.association :ingredient %>
+    <%= q.input :quantity %>
+  <% end %>
   <div class="text-center">
     <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
