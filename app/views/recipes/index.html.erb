@@ -1,1 +1,18 @@
 <h1>recipes index</h1>
+
+<%= form_tag recipes_path, method: "get" do %>
+  <%=text_field_tag 'search', @search, placeholder: 'Enter new search term...' %>
+  <%= submit_tag :submit, class: 'btn btn-primary' %>
+<% end %>
+
+<!-- set the form to go back to the recipes path but edit the method back to get to load index not the create action-->
+<!-- then add a text field tag for the search to display instance variable of search (in the recipes controller) and if there is nothing have a placeholder in the search box -->
+<!--  create the button for someone to submit with bootstrap-->
+
+<% @recipes.each do |recipe| %>
+ <p> <%= recipe.name %> </p>
+<%end%>
+
+
+
+

@@ -1,10 +1,11 @@
 require 'faker'
 
 puts 'Cleaning database...'
+Quantity.destroy_all
 Ingredient.destroy_all
 Recipe.destroy_all
 User.destroy_all
-Quantity.destroy_all
+
 
 puts 'Creating user'
 
@@ -56,5 +57,26 @@ puts 'creating quantities'
 end
 
 puts 'finished quantities'
+
+Recipe.first.quantities.create!(
+ingredient: Ingredient.first,
+quantity: Faker::Number.between(10, 30),
+  )
+Recipe.last.quantities.create!(
+ingredient: Ingredient.first,
+quantity: Faker::Number.between(10, 30),
+  )
+
+Recipe.first.quantities.create!(
+ingredient: Ingredient.last,
+quantity: Faker::Number.between(10, 30),
+  )
+Recipe.last.quantities.create!(
+ingredient: Ingredient.last,
+quantity: Faker::Number.between(10, 30),
+  )
+
+
+
 
 
