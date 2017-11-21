@@ -7,12 +7,17 @@ class RecipesController < ApplicationController
   end
 
   def new
-   @recipe = Recipe.new
+    @recipe = Recipe.new
+    3.times do
+      @recipe.quantities.build(recipe: @recipe).build_ingredient
+    end
   end
 
   def create
-   @recipe = Recipe.new(recipe_params)
-     if @recipe.save
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+
+    if @recipe.save
       redirect_to dashboard_path
     else
       render 'new'
@@ -44,7 +49,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo)
+   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo, quantities_attributes: [:ingredient_id, :quantity])
   end
 end
 
