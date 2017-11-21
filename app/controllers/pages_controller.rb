@@ -6,5 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @favourite_recipes = current_user.favourite_recipes
   end
 end
