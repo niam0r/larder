@@ -26,9 +26,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    3.times do
       @recipe.quantities.build(recipe: @recipe).build_ingredient
-    end
   end
 
   def create
@@ -67,7 +65,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo, quantities_attributes: [:ingredient_id, :quantity])
+   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo, quantities_attributes: [:ingredient_id, :quantity, :_destroy])
   end
 end
 

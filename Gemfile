@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+
+gem 'jquery-rails'
+gem 'cocoon'
 gem 'hangry'
 gem 'ingreedy'
 # gem 'open-uri'

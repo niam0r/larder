@@ -1,0 +1,8 @@
+<div class="nested-fields quantities-fields">
+  <div class="ingredient_from_list">
+    <%= f.association :ingredient, :collection => Ingredient.all.order(:name), :prompt => 'Choose an existing ingredient' %>
+   </div>
+   <%= link_to_add_association 'or create a new ingredient', f, :ingredient %>
+   <%=  f.input :quantity %>
+   <%=  link_to_remove_association "remove ingredient", f %>
+</div>
