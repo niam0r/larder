@@ -4,6 +4,9 @@ class Recipe < ApplicationRecord
   has_many :favourites
   belongs_to :user
 
+  accepts_nested_attributes_for :quantities
+  accepts_nested_attributes_for :ingredients
+
   include PgSearch
    pg_search_scope :recipe_search,
     associated_against: {
@@ -12,5 +15,4 @@ class Recipe < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  accepts_nested_attributes_for :quantities
 end
