@@ -1,4 +1,4 @@
- .card {
+.card {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
@@ -7,8 +7,17 @@
   position: relative;
   margin-bottom: 1px;
 }
-
- .dashboard-card {
+.card-servings {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+.card-duration {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.dashboard-card {
   height: 100px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
