@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-    @favourite_recipes = current_user.favourite_recipes
+    @favourites = Favourite.where(user_id: current_user.id)
+    @recipes = @favourites.map { |fav| fav.recipe }
   end
 end

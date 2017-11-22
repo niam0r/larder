@@ -9,13 +9,13 @@ class FavouritesController < ApplicationController
     if @favourite.save
       # redirect_to dashboard_path
     else
-      render 'new'
+      render 'recipes/show'
     end
   end
 
   def destroy
     @favourite = Favourite.find(params[:id])
-    authorize @favourite
+    # authorize @favourite
     @favourite.destroy
     redirect_to dashboard_path, notice: 'Done!'
   end

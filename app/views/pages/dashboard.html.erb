@@ -1,29 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-12 offset-md-1">
-      <h1> Recipe dashboard </h1>
+      <h1> Your Favourites </h1>
     </div>
   </div>
 </div>
-
-<div class="container">
+<div class="container cards">
   <div class="row">
-    <div class="col-xs-12 col-md-12 offset-md-1">
-      <h3> My saved recipes </h3>
-      <% @favourite_recipes.each do |favourite| %>
-          <div class="product">
-            <%= cl_image_tag favourite.photo, class:"product-image hidden-xs" %>
-            <div class='product-body'>
-              <h3><%= favourite.name %></h3>
-              <p><%= favourite.description %></p>
+     <% @recipes.each do |recipe| %>
+      <div class="col-xs-12">
+        <div class="dashboard-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url();">
+          <%= cl_image_tag recipe.photo, class:"product-image hidden-xs" %>
+             <div class="card-description">
+                <h2><%= recipe.name %></h2>
+              </div>
+                <div class="trashcan">
+                  <%= link_to favourite_path(@user.favourite_for(recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <% end %>
+                </div>
             </div>
-            <ul class="list-inline product-controls hidden-sm hidden-xs">
-              <li><%= link_to favourite_path(favourite), method: :delete, data: { confirm: 'Are you sure?'} do %>
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-              <% end %></li>
-            </ul>
           </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+          <% end %>
+        </div>
+      </div>
+
+
+

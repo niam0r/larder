@@ -17,5 +17,7 @@ class User < ApplicationRecord
   has_many :favourites
   has_many :favourite_recipes, through: :favourites, source: :recipe
 
-
+  def favourite_for(recipe)
+    Favourite.find_by(recipe: recipe, user: self)
+  end
 end
