@@ -2,6 +2,7 @@ require 'faker'
 
 puts 'Cleaning database...'
 Quantity.destroy_all
+Favourite.destroy_all
 Ingredient.destroy_all
 Recipe.destroy_all
 User.destroy_all
