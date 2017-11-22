@@ -44,6 +44,7 @@ GEM
     aws_cf_signer (0.1.3)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    blankslate (3.1.3)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -78,10 +79,15 @@ GEM
       sass (>= 3.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hangry (0.0.2)
+      activesupport
+      nokogiri
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
+    ingreedy (0.0.9)
+      parslet (~> 1.7.0, >= 1.7.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -106,6 +112,8 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    parslet (1.7.1)
+      blankslate (>= 2.0, <= 4.0)
     pg (0.21.0)
     pg_search (2.1.1)
       activerecord (>= 4.2)
@@ -223,8 +231,11 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass
+  hangry
+  ingreedy
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  nokogiri
   pg
   pg_search
   pry-byebug
