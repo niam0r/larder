@@ -1,9 +1,8 @@
-<div class="text-center">
-  <%= form_tag recipes_path, method: "get" do %>
-    <%=text_field_tag 'search', @search, placeholder: 'Enter new search term...' %>
-    <%= submit_tag :submit, class: 'btn btn-primary' %>
-  <% end %>
-</div>
+<%= simple_form_for Recipe.new, url: recipes_path, method: :get do |f| %>
+  <%= f.association :ingredients, selected: params.dig(:recipe, :ingredient_ids), include_blank: false, include_hidden: false %>
+  <%= f.submit 'Search', class: 'btn btn-primary' %>
+<% end %>
+
 <!-- set the form to go back to the recipes path but edit the method back to get to load index not the create action-->
 <!-- then add a text field tag for the search to display instance variable of search (in the recipes controller) and if there is nothing have a placeholder in the search box -->
 <!--  create the button for someone to submit with bootstrap-->
@@ -29,6 +28,8 @@
    </div>
 </div>
 
+<%= stylesheet_pack_tag 'home_search', media: 'all' %>
 
-
-
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'home_search' %>
+<% end %>

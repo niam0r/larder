@@ -6,11 +6,14 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <%= form_tag(recipes_path, method: :get, :class => 'form-inline') do %>
-            <%= text_field_tag :search, nil, class: 'form-control search-style', placeholder: 'Search by ingredient...' %>
-            <%= button_tag(type: "submit", class: "btn btn-primary search-button") do %>
-              <i class="fa fa-search"></i>
-          <% end %>
+          <%= simple_form_for Recipe.new, url: recipes_path, method: :get do |f| %>
+            <%= f.association :ingredients, include_blank: false, include_hidden: false %>
+            <%= f.submit 'Search', class: 'btn btn-primary' %>
+          <%#= form_tag(recipes_path, method: :get, :class => 'form-inline') do %>
+            <%#= text_field_tag :search, nil, class: 'form-control search-style', placeholder: 'Search by ingredient...' %>
+            <%#= button_tag(type: "submit", class: "btn btn-primary search-button") do %>
+              <!-- <i class="fa fa-search"></i> -->
+          <%# end %>
           <% end %>
         </div>
       </div>
@@ -18,5 +21,8 @@
   </div>
 </div>
 
+<%= stylesheet_pack_tag 'home_search', media: 'all' %>
 
-
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'home_search' %>
+<% end %>
