@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+gem 'hangry'
+gem 'ingreedy'
+# gem 'open-uri'
+gem 'nokogiri'
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
