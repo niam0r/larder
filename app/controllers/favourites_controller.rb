@@ -9,7 +9,7 @@ class FavouritesController < ApplicationController
     if @favourite.save
       # redirect_to dashboard_path
     else
-      render 'new'
+      render 'recipes/show'
     end
   end
 

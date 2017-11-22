@@ -5,8 +5,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @recipe_ids = Favourite.where(user_id: current_user.id)
-    @recipes = []
-    @recipe_ids.each { |instance| @recipes << Recipe.find(instance.recipe_id) }
+    @user = current_user
+    @favourites = Favourite.where(user_id: current_user.id)
+    @recipes = @favourites.map { |fav| fav.recipe }
   end
 end
