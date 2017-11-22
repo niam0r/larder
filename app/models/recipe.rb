@@ -4,11 +4,16 @@ class Recipe < ApplicationRecord
   has_many :favourites
   belongs_to :user
 
+
   include PgSearch
-   pg_search_scope :recipe_search,
-    associated_against: {
-      ingredients: [ :name ]
-    }
+  pg_search_scope :recipe_search,
+  associated_against: {
+    ingredients: [ :name ]
+  }
+
+
+
+
 
   mount_uploader :photo, PhotoUploader
 
