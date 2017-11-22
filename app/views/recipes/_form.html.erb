@@ -5,11 +5,28 @@
   <%= f.input :cuisine %>
   <%= f.input :servings %>
   <%= f.input :photo %>
-  <%= f.fields_for :quantities do |q| %>
-    <%= q.association :ingredient %>
-    <%= q.input :quantity %>
-  <% end %>
+  <div id="quantities">
+    <%= f.simple_fields_for :quantities do |q| %>
+        <%= render 'quantity_fields', f: q %>
+        <div class="links">
+          <%= link_to_add_association 'add ingredient', f, :quantities %>
+        </div>
+    <% end %>
+  </div>
+
   <div class="text-center">
     <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+
+<!-- = simple_form_for @project do |f|
+  = f.input :name
+  = f.input :description
+  %h3 Tasks
+  #tasks
+    = f.simple_fields_for :tasks do |task|
+      = render 'task_fields', f: task
+    .links
+      = link_to_add_association 'add task', f, :tasks
+  = f.submit -->
