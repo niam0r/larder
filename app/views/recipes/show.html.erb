@@ -11,17 +11,22 @@
   </div>
 </div>
 
-<% if @recipe != @user.favourite_for(@recipe).recipe %>
-  <div class="form-inline text-center">
-    <%= render 'favourites/form_favourites' %>
-  </div>
-<% else %>
-  <div class="form-inline text-center">
-    <%= link_to favourite_path(@user.favourite_for(@recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
+
+  <% if current_user.favourites.empty? %>
+    <div class="form-inline text-center">
+      <%= render 'favourites/form_favourites' %>
+    </div>
+  <% else %>
+    <div class="form-inline text-center">
+      <%= link_to favourite_path(@user.favourite_for(@recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
       <button>remove favourite</button>
     <% end %>
   </div>
-<% end %>
+  <%end %>
+
+
+
+
 
 <%= content_for(:after_js) do %>
   <script>
