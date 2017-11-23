@@ -72,6 +72,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @favourite = Favourite.new
   end
 
