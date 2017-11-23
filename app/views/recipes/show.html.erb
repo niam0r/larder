@@ -12,16 +12,22 @@
 </div>
 
 <!-- if recipe is not one of your favourites, display:  -->
-<div class="form-inline text-center">
-  <%= render 'favourites/form_favourites' %>
-</div>
+
+  <div class="form-inline text-center">
+    <%= render 'favourites/form_favourites' %>
+  </div>
 
 <!-- if recipe IS a favourite, display:  -->
-<div class="form-inline text-center">
-  <%= link_to favourite_path(@user.favourite_for(@recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
-    <i class="fa fa-trash-o" aria-hidden="true"></i>
-  <% end %>
-</div>
+<!-- at the moment this code only works on a show page which is already your favouite
+ -->
+  <div class="form-inline text-center">
+    <%= link_to favourite_path(@user.favourite_for(@recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% end %>
+  </div>
+  <% else %>
+
+
 
 
 <%= content_for(:after_js) do %>

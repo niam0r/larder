@@ -14,6 +14,7 @@ class FavouritesController < ApplicationController
   end
 
   def destroy
+
     @favourite = Favourite.find(params[:id])
     # authorize @favourite
     @favourite.destroy
