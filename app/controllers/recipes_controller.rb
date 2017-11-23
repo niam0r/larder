@@ -35,10 +35,27 @@ class RecipesController < ApplicationController
   end
 
   def create
+    existing_ingredients = []
+    new_ingredients = []
+    params['recipe']['quantities_attributes'].values.each do |key, value|
+      existing_ingredients << key if key["ingredient_id"].to_i != 0
+      new_ingredients << key if key["ingredient_id"].to_i == 0
+    end
+    a = []
+    new_ingredients.each do |ingredient_hash|
+      a << [Ingredient.create!(name: ingredient_hash['ingredient_id']), ingredient_hash['quantity']]
+    end
+    b = []
+    existing_ingredients.map! do |ingredient_hash|
+      b << [Ingredient.find(ingredient_hash['ingredient_id'].to_i), ingredient_hash['quantity']]
+    end
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     binding.pry
     if @recipe.save
+      a.concat(b).each do |array|
+        Quantity.create!(ingredient: array[0], recipe: @recipe, quantity: array[1])
+      end
       redirect_to dashboard_path
     else
       render 'new'
@@ -70,7 +87,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo, quantities_attributes: [:ingredient_id, :quantity, :_destroy])
+   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo)
   end
 end
 
