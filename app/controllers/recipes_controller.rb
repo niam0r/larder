@@ -27,6 +27,11 @@ class RecipesController < ApplicationController
       # find/get all recipes by their id
       # if no search term then just show them all
     end
+
+    @favourite_recipes_id = []
+    current_user.favourites.each do |favourite|
+      @favourite_recipes_id << favourite.recipe_id
+    end
   end
 
   def new
@@ -63,11 +68,10 @@ class RecipesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-   @recipe.update
+   @recipe.update(recipe_params)
    redirect_to recipe_path(@recipe)
   end
 
@@ -88,7 +92,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo)
+   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo, :photo_cache)
   end
 end
 
