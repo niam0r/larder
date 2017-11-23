@@ -1,3 +1,5 @@
+<% content_for(:title, @recipe.name) %>
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @recipe.photo %>);">
   <div class="banner-content">
     <h1 class="text-center"><%= @recipe.name %></h1>
