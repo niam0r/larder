@@ -9,7 +9,7 @@
     <%= f.simple_fields_for :quantities do |q| %>
         <%= render 'quantity_fields', f: q %>
         <div class="links">
-          <%= link_to_add_association 'add ingredient', f, :quantities %>
+          <%= link_to_add_association 'add ingredient', f, :quantities, class: 'btn btn-success', id: 'add-new-quantity' %>
         </div>
     <% end %>
   </div>
