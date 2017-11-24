@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-xs-12">
           <%= form_with url: recipes_path, method: :get, local: true do |f| %>
-            <%= f.text_field :query, class: 'form-control', autofocus: true, id: 'home-input' %>
+            <%= f.text_field :query, class: 'form-control', autofocus: true, id: 'home-input', placeholder: "e.g tomatoes, pasta, pork.."  %>
             <%= f.submit 'Search', class: 'btn btn-primary hidden', id: 'home-submit' %>
           <% end %>
         </div>
@@ -21,3 +21,6 @@
 <%= content_for(:after_js) do %>
   <%= javascript_pack_tag 'home_recipe_search' %>
 <% end %>
+
+
+

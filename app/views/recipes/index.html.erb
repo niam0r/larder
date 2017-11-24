@@ -1,7 +1,7 @@
 <% content_for(:title, 'Larder\'s recipes') %>
 
 <%= form_with url: recipes_path, method: :get, remote: true do |f| %>
-  <%= f.text_field :query, value: params[:query], class: 'form-control', id: 'inputSeach', autofocus: true %>
+  <%= f.text_field :query, value: params[:query], class: 'form-control', id: 'inputSeach', autofocus: true, autocomplete: "off" %>
   <%= f.submit 'Search', class: 'btn btn-primary hidden', id: 'submitSeachButton' %>
 <% end %>
 
