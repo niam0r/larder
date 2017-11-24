@@ -23,8 +23,9 @@ $card-margin-top: 20px;
 .card-center {
   height: 30px;
   width: 30px;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .card-servings {

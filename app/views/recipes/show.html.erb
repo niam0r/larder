@@ -8,29 +8,21 @@
     <div class="card-servings">
       <%= image_tag('cutlery.svg', size: "30x30", alt: "Servings", class: "cut") %> <%= @recipe.servings %>
     </div>
-
-    <div class="card-center">
-      <% if @recipe != current_user.favourite_for(@recipe)&.recipe %>
-          <%= render 'favourites/form_favourites' %>
-      <% else %>
-        <%= link_to favourite_path(current_user.favourite_for(@recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
-          <%= image_tag("full-star-add.png") %>
-        <% end %>
-      <%end %>
-    </div>
-
     <div class="card-duration">
       <%= @recipe.duration %>min<%= image_tag('hourglass.svg', size: "30x30", alt: "Duration") %>
     </div>
-    <% if @favourite_recipes_id.include?(@recipe.id) %>
-      <div class="card-favourite">
-        <%= image_tag('full-star.png', size: "30x30", alt: "Favourite") %>
-      </div>
-    <% else %>
-      <div class="card-favourite">
-        <%= image_tag('empty-star.png', size: "30x30", alt: "Favourite") %>
-      </div>
-    <% end %>
+
+    <div class="card-favourite">
+      <% if @favourite_recipes_id.include?(@recipe.id) %>
+          <%= link_to favourite_path(current_user.favourite_for(@recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
+            <%= image_tag("full-star.png", size: "30x30", alt: "Favourited") %>
+          <% end %>
+      <% else %>
+        <% if @recipe != current_user.favourite_for(@recipe)&.recipe %>
+          <%= render 'favourites/form_favourites' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -46,8 +38,6 @@
     <h6><%= @recipe.method %></h6>
   </div>
 </div>
-
-
 
 <%= content_for(:after_js) do %>
   <script>
