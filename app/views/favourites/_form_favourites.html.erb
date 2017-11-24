@@ -1,3 +1,7 @@
 <%= simple_form_for [@recipe, @favourite] do |f| %>
-  <%= f.button :submit, id: 'sweet-alert-demo', class: 'btn btn-primary' %>
+  <%= button_tag( :class => "") do %>
+   <%= image_tag("full-star-add.png") %>
+  <% end %>
 <% end %>
+
+
