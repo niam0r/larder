@@ -1,51 +1,26 @@
 <% content_for(:title, 'My Larder') %>
 
 <div class="wrapper">
-<div class="tabs">
-  <a class="tab active" id="tab-favourite" href="#">
-    <h3><%= Favourite.count %></h3>
-    <p>Favourites</p>
-  </a>
-  <a class="tab" id="tab-recipe" href="#">
-    <h3><%= User.name %></h3>
-    <p>Your recipes</p>
-  </a>
-  <a class="tab" href="#">
-    <h3>456</h3>
-    <p>Your preferences</p>
-  </a>
-</div>
+  <div class="tabs">
+    <a class="tab active" id="tab-favourite" href="#">
+      <h3><%= Favourite.count %></h3>
+      <p>Favourites</p>
+    </a>
+    <a class="tab" id="tab-recipe" href="#">
+      <h3><%= User.name %></h3>
+      <p>Your recipes</p>
+    </a>
+    <a class="tab" href="#">
+      <h3>456</h3>
+      <p>Your preferences</p>
+    </a>
+  </div>
 
   <div class="container" id="cont-favourite">
     <div class="row">
       <div class="col-xs-12 col-lg-12 offset-lg-1">
         <h3><span>Your Favourites</span></h3>
         <% @recipes.each do |recipe| %>
-
-        <div class="product">
-          <%= cl_image_tag recipe.photo, class:"product-image hidden-xs" %>
-          <div class='product-body'>
-            <h3><%= recipe.name %></h3>
-            <p><%= recipe.description %></p>
-          </div>
-          <ul class="list-inline product-controls hidden-sm hidden-xs">
-            <li><%= image_tag('hourglass.svg', size: "20x20", alt: 'duration' ) %> <%= recipe.duration %></li>
-            <li><%= image_tag('cutlery.svg', size: "20x20", alt: 'cutlery') %> <%= recipe.servings %></li>
-            <li><%= link_to favourite_path(@user.favourite_for(recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
-              <i class="fa fa-trash-o" aria-hidden="true"></i>
-              <% end %>
-            </ul>
-            <%= link_to '', recipe_path(recipe), class: 'food-card-link' %>
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="container hidden" id="cont-recipe">
-      <div class="row">
-        <div class="col-xs-12 col-lg-12 offset-lg-1">
-          <h3>My Recipes</h3>
-          <% @user.recipes.each do |recipe| %>
           <div class="product">
             <%= cl_image_tag recipe.photo, class:"product-image hidden-xs" %>
             <div class='product-body'>
@@ -55,42 +30,66 @@
             <ul class="list-inline product-controls hidden-sm hidden-xs">
               <li><%= image_tag('hourglass.svg', size: "20x20", alt: 'duration' ) %> <%= recipe.duration %></li>
               <li><%= image_tag('cutlery.svg', size: "20x20", alt: 'cutlery') %> <%= recipe.servings %></li>
-              <li><%= link_to recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?'} do %>
+              <li><%= link_to favourite_path(@user.favourite_for(recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
-              <% end %></li>
-            </ul>
-            <%= link_to '', recipe_path(recipe), class: 'food-card-link' %>
+                <% end %>
+              </ul>
+              <%= link_to '', recipe_path(recipe), class: 'food-card-link' %>
+<!-- WHAT IS THIS LINK TO??? -->
           </div>
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
+  </div>
+
+  <div class="container hidden" id="cont-recipe">
+    <div class="row">
+      <div class="col-xs-12 col-lg-12 offset-lg-1">
+        <h3>My Recipes</h3>
+        <% @user.recipes.each do |recipe| %>
+        <div class="product">
+          <%= cl_image_tag recipe.photo, class:"product-image hidden-xs" %>
+          <div class='product-body'>
+            <h3><%= recipe.name %></h3>
+            <p><%= recipe.description %></p>
+          </div>
+          <ul class="list-inline product-controls hidden-sm hidden-xs">
+            <li><%= image_tag('hourglass.svg', size: "20x20", alt: 'duration' ) %> <%= recipe.duration %></li>
+            <li><%= image_tag('cutlery.svg', size: "20x20", alt: 'cutlery') %> <%= recipe.servings %></li>
+            <li><%= link_to recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?'} do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <% end %></li>
+          </ul>
+          <%= link_to '', recipe_path(recipe), class: 'food-card-link' %>
+        </div>
+        <% end %>
+      </div>
     </div>
+  </div>
+</div>
 
-    <script>
-      let favourite = document.getElementById('cont-favourite');
-      let recipe = document.getElementById('cont-recipe');
-      let tabFav = document.getElementById('tab-favourite');
-      let tabRecipe = document.getElementById('tab-recipe');
+<script>
+  let favourite = document.getElementById('cont-favourite');
+  let recipe = document.getElementById('cont-recipe');
+  let tabFav = document.getElementById('tab-favourite');
+  let tabRecipe = document.getElementById('tab-recipe');
 
-      tabFav.addEventListener("click", () => {
-        favourite.classList.add("show");
-        favourite.classList.remove('hidden');
-        recipe.classList.remove('show');
-        recipe.classList.add('hidden');
-        tabFav.classList.add("active");
-        tabRecipe.classList.remove("active");
+  tabFav.addEventListener("click", () => {
+    favourite.classList.add("show");
+    favourite.classList.remove('hidden');
+    recipe.classList.remove('show');
+    recipe.classList.add('hidden');
+    tabFav.classList.add("active");
+    tabRecipe.classList.remove("active");
 
-      });
+  });
 
-      tabRecipe.addEventListener('click', () => {
-        favourite.classList.add("hidden");
-        favourite.classList.remove('show');
-        recipe.classList.remove('hidden');
-        recipe.classList.add('show');
-        tabFav.classList.remove("active");
-        tabRecipe.classList.add("active");
-      })
-
-
-    </script>
+  tabRecipe.addEventListener('click', () => {
+    favourite.classList.add("hidden");
+    favourite.classList.remove('show');
+    recipe.classList.remove('hidden');
+    recipe.classList.add('show');
+    tabFav.classList.remove("active");
+    tabRecipe.classList.add("active");
+  })
+</script>

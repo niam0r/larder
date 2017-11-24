@@ -17,7 +17,7 @@ class FavouritesController < ApplicationController
     @favourite = Favourite.find(params[:id])
     # authorize @favourite
     @favourite.destroy
-    redirect_to recipe_path(@favourite.recipe), notice: 'Done!'
+    redirect_to recipe_path(@favourite.recipe)
   end
 
   private

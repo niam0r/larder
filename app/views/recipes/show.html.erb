@@ -14,7 +14,7 @@
 
     <div class="card-favourite">
       <% if @favourite_recipes_id.include?(@recipe.id) %>
-          <%= link_to favourite_path(current_user.favourite_for(@recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
+          <%= link_to favourite_path(current_user.favourite_for(@recipe)), method: :delete do %>
             <%= image_tag("full-star.png", size: "30x30", alt: "Favourited") %>
           <% end %>
       <% else %>
