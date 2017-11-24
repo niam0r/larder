@@ -7,17 +7,21 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <h2><%= @recipe.description %></h2>
+<div class="recipe-info-container">
+  <div class="recipe-desc">
+    <p> <%= @recipe.description %>
+  </div>
+  <div class="ingredient-names">
     <ul>
-    <% @recipe.ingredients do |ingredient| %>
-    <li>
-      <%= ingredient.name %>
-    </li>
-    <% end %>
+      <% @recipe.ingredients do |ingredient| %>
+      <li>
+        <h2> <%= ingredient.name %></h2>
+      </li>
+      <% end %>
     </ul>
-    <h2><%= @recipe.method %></h2>
+  </div>
+  <div class="recipe-method">
+    <p> <%= @recipe.method %> </p>
   </div>
 </div>
 
