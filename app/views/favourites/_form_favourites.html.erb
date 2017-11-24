@@ -1,6 +1,6 @@
 <%= simple_form_for [@recipe, @favourite] do |f| %>
   <%= button_tag( :class => "") do %>
-   <%= image_tag("full-star-add.png") %>
+   <%= image_tag("empty-star.png", size: "30x30", alt: "Add to favourite") %>
   <% end %>
 <% end %>
 
