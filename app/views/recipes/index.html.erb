@@ -1,8 +1,8 @@
 <% content_for(:title, 'Larder\'s recipes') %>
 
-<%= simple_form_for Recipe.new, url: recipes_path, method: :get do |f| %>
-  <%= f.association :ingredients, selected: params.dig(:recipe, :ingredient_ids), include_blank: false, include_hidden: false %>
-  <%= f.submit 'Search', class: 'btn btn-primary' %>
+<%= form_with url: recipes_path, method: :get, remote: true do |f| %>
+  <%= f.text_field :query, value: params[:query], class: 'form-control', id: 'inputSeach', autofocus: true %>
+  <%= f.submit 'Search', class: 'btn btn-primary hidden', id: 'submitSeachButton' %>
 <% end %>
 
 <!-- set the form to go back to the recipes path but edit the method back to get to load index not the create action-->
@@ -10,37 +10,10 @@
 <!--  create the button for someone to submit with bootstrap-->
 
 <div class="container cards">
-  <div class="row">
-      <% @recipes.each do |recipe| %>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <%= link_to recipe_path(recipe) do %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(recipe.photo? ? recipe.photo : 'https://kitt.lewagon.com/placeholder/cities/shanghai') %>');">
-              <div class="card-category">
-                <%= recipe.name %>
-              </div>
-              <div class="card-servings">
-                <%= image_tag('cutlery.svg', size: "30x30", alt: "Servings", class: "cut") %> <%= recipe.servings %>
-              </div>
-              <div class="card-duration">
-                <%= recipe.duration %>min<%= image_tag('hourglass.svg', size: "30x30", alt: "Duration") %>
-              </div>
-              <% if @favourite_recipes_id.include?(recipe.id) %>
-                <div class="card-favourite">
-                  <%= image_tag('full-star.png', size: "30x30", alt: "Favourite") %>
-                </div>
-              <% else %>
-                <div class="card-favourite">
-                  <%= image_tag('empty-star.png', size: "30x30", alt: "Favourite") %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-   </div>
+  <%= render 'recipes/recipes_container', recipes: @recipes, user: @user %>
 </div>
 
 <%= content_for(:after_js) do %>
-  <%= javascript_pack_tag 'home_search' %>
+  <%= javascript_pack_tag 'recipe_index' %>
 <% end %>
 

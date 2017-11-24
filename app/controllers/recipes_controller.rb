@@ -2,13 +2,12 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
-    if params[:recipe].present?
-      ingredient_ids = params[:recipe][:ingredient_ids].map(&:to_i)
+    # if params[:recipe].present?
+    #   ingredient_ids = params[:recipe][:ingredient_ids].map(&:to_i)
 
-      @recipes = @recipes.select do |recipe|
-        ingredient_ids.all? { |i| recipe.ingredients.pluck(:id).include? i }
-      end
+    #   @recipes = @recipes.select do |recipe|
+    #     ingredient_ids.all? { |i| recipe.ingredients.pluck(:id).include? i }
+    #   end
 
       # search_terms = params[:search].split(", ").first(2)
       # search terms is based on the search added in and then split at the comma, then it finds recipes just on the first two ingredients
@@ -25,12 +24,22 @@ class RecipesController < ApplicationController
       # @recipes = Recipe.where(id: recipe_ids)
       # find/get all recipes by their id
       # if no search term then just show them all
+    # end
+
+    @user = current_user
+
+    if params[:query].present?
+      # TODO CHANGE THIS TO USE PG SEARCH AND FILTER ON DESCRIPTION AND INGREDIENTS
+      @recipes = Recipe.where("name iLIKE '%#{params[:query]}%'")
+    else
+      @recipes = Recipe.all
     end
 
-    @favourite_recipes_id = []
-    current_user.favourites.each do |favourite|
-      @favourite_recipes_id << favourite.recipe_id
-    end
+
+    # @favourite_recipes_id = []
+    # current_user.favourites.each do |favourite|
+    #   @favourite_recipes_id << favourite.recipe_id
+    # end
   end
 
   def new

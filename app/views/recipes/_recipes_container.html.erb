@@ -1,0 +1,9 @@
+<div class="row" id="recipes-container">
+  <% if recipes.any?  %>
+    <% recipes.each do |recipe| %>
+      <%= render 'recipes/recipe_card', user: user, recipe: recipe %>
+    <% end %>
+  <% else %>
+    <p>No results!</p>
+  <% end %>
+ </div>

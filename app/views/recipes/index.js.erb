@@ -1,0 +1,4 @@
+console.log('BEFORE!')
+var container = document.getElementById('recipes-container')
+container.innerHTML = "<%= j render 'recipes/recipes_container', recipes: @recipes, user: @user %>"
+console.log('DONE!')
