@@ -1,4 +1,6 @@
-<% content_for(:title, 'Larder') %>
+<% content_for(:title) do %>
+  Larder
+<% end %>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path('larder-banner') %>);">
   <div class="banner-content">
