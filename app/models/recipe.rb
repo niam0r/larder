@@ -13,4 +13,8 @@ class Recipe < ApplicationRecord
   }
 
   mount_uploader :photo, PhotoUploader
+
+  def favourited?(user)
+    Favourite.find_by(user: user, recipe: self)
+  end
 end
