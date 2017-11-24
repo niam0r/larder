@@ -1,5 +1,6 @@
-<% content_for(:title, 'My larder dashboard') %>
+<% content_for(:title, 'My Larder') %>
 
+<div class="wrapper">
 <div class="tabs">
   <a class="tab active" id="tab-favourite" href="#">
     <h3><%= Favourite.count %></h3>
@@ -63,6 +64,7 @@
           <% end %>
         </div>
       </div>
+    </div>
     </div>
 
     <script>
