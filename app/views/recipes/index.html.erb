@@ -1,3 +1,5 @@
+<% content_for(:title, 'Larder\'s recipes') %>
+
 <%= simple_form_for Recipe.new, url: recipes_path, method: :get do |f| %>
   <%= f.association :ingredients, selected: params.dig(:recipe, :ingredient_ids), include_blank: false, include_hidden: false %>
   <%= f.submit 'Search', class: 'btn btn-primary' %>
