@@ -1,6 +1,7 @@
 .tabs {
-  background: #53443F;
+  background: $light-gray;
   display: flex;
+  justify-content: center;
   padding: 10px 10px 0 10px
 }
 .tabs a {
@@ -13,15 +14,17 @@
 }
 .tabs h3 {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 400;
   margin-top: 0;
+  color: $larder-green-primary
 }
 .tabs p {
   opacity: 0.5;
   margin-bottom: 0;
+  color: $larder-green-primary
 }
 .tab {
-  background: #756A66;
+  background: white;
   flex: 0 0 25%;
   text-align: center;
   padding: 20px 0;
@@ -35,4 +38,11 @@
 .tab.active {
   background: white;
   color: black;
+  border-bottom: 2px solid $larder-green-primary;
+  // border-bottom: opacity: 0.4;
+}
+
+.tab:hover {
+  border-bottom: 2px solid $larder-green-primary;
+  transition: 0.2s;
 }
