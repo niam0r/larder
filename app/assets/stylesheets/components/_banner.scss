@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('../../../public/larder-banner.png');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), image-url('larder-banner.png');
 }
 .banner h1 {
   color: white;
