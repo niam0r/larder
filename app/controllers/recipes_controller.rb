@@ -30,7 +30,7 @@ class RecipesController < ApplicationController
 
     if params[:query].present?
       # TODO CHANGE THIS TO USE PG SEARCH AND FILTER ON DESCRIPTION AND INGREDIENTS
-      @recipes = Recipe.where("name iLIKE '%#{params[:query]}%'")
+      @recipes = Recipe.where("name iLIKE '%#{params[:query].downcase}%' OR description iLIKE '%#{params[:query].downcase}%' " )
     else
       @recipes = Recipe.all
     end
