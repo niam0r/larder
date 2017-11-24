@@ -74,8 +74,13 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @user = current_user
+    # @user = current_user
     @favourite = Favourite.new
+
+    @favourite_recipes_id = []
+    current_user.favourites.each do |favourite|
+      @favourite_recipes_id << favourite.recipe_id
+    end
   end
 
   def destroy
