@@ -1,9 +1,28 @@
 <% content_for(:title, @recipe.name) %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @recipe.photo %>);">
+<div class="half-screen" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @recipe.photo %>);">
   <div class="banner-content">
-    <h1 class="text-center"><%= @recipe.name %></h1>
-    <p><%= @recipe.cuisine %></p>
+    <div class="card-category">
+      <%= @recipe.name %>
+    </div>
+    <div class="card-servings">
+      <%= image_tag('cutlery.svg', size: "30x30", alt: "Servings", class: "cut") %> <%= @recipe.servings %>
+    </div>
+    <div class="card-duration">
+      <%= @recipe.duration %>min<%= image_tag('hourglass.svg', size: "30x30", alt: "Duration") %>
+    </div>
+
+    <div class="card-favourite">
+      <% if @favourite_recipes_id.include?(@recipe.id) %>
+          <%= link_to favourite_path(current_user.favourite_for(@recipe)), method: :delete do %>
+            <%= image_tag("full-star.png", size: "30x30", alt: "Favourited") %>
+          <% end %>
+      <% else %>
+        <% if @recipe != current_user.favourite_for(@recipe)&.recipe %>
+          <%= render 'favourites/form_favourites' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -25,20 +44,6 @@
   </div>
 </div>
 
-
-
-<% if @recipe != @user.favourite_for(@recipe)&.recipe %>
-  <div class="form-inline text-center">
-    <%= render 'favourites/form_favourites' %>
-  </div>
-<% else %>
-  <div class="form-inline text-center">
-    <%= link_to favourite_path(@user.favourite_for(@recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
-      <button>remove favourite</button>
-    <% end %>
-  </div>
-  <%end %>
-
 <%= content_for(:after_js) do %>
   <script>
   function bindSweetAlertButtonDemo() {
@@ -54,7 +59,7 @@
   let createBtn = document.getElementById('sweet-alert-demo')
   createBtn.addEventListener('click', () => {
     document.body.addEventListener('click', () => {
-      window.location.href = "http://localhost:3000/dashboard";
+      window.location.href = "/dashboard";
     })
   })
   </script>

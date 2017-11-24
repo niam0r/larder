@@ -16,9 +16,16 @@ $card-margin-top: 20px;
   justify-content: center;
   align-items: center;
 }
-
 .card:hover {
   box-shadow: 0 16px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-center {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .card-servings {
@@ -29,11 +36,9 @@ $card-margin-top: 20px;
   justify-content: center;
   align-items: center;
 }
-
 .card-servings .cut {
   margin-right: 5px;
 }
-
 
 .card-duration {
   position: absolute;
@@ -54,8 +59,6 @@ $card-margin-top: 20px;
   position: absolute;
   right: 10px;
   top: 10px;
-  width: 30px;
-  border-radius: 50%;
 }
 .card-category {
   position: absolute;

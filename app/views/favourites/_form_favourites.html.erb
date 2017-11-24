@@ -1,3 +1,7 @@
 <%= simple_form_for [@recipe, @favourite] do |f| %>
-  <%= f.button :submit, id: 'sweet-alert-demo', class: 'btn btn-primary' %>
+  <%= button_tag( :class => "deco-none") do %>
+    <%= image_tag("empty-star.png", size: "30x30", alt: "Add to favourite") %>
+  <% end %>
 <% end %>
+
+
