@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -56,7 +55,6 @@ class RecipesController < ApplicationController
     end
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
-    binding.pry
     if @recipe.save
       a.concat(b).each do |array|
         Quantity.create!(ingredient: array[0], recipe: @recipe, quantity: array[1])

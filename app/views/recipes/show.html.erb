@@ -8,10 +8,19 @@
 <div class="container">
   <div class="row">
     <h2><%= @recipe.description %></h2>
+    <ul>
+    <% @recipe.ingredients do |ingredient| %>
+    <li>
+      <%= ingredient.name %>
+    </li>
+    <% end %>
+    </ul>
+    <h2><%= @recipe.method %></h2>
   </div>
 </div>
 
-<% if @recipe != @user.favourite_for(@recipe).recipe %>
+
+<% if @recipe != @user.favourite_for(@recipe)&.recipe %>
   <div class="form-inline text-center">
     <%= render 'favourites/form_favourites' %>
   </div>
