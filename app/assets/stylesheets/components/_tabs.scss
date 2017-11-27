@@ -16,15 +16,15 @@
   font-size: 17px;
   font-weight: 400;
   margin-top: 0;
-  color: $larder-green-primary;
+  color: white;
 }
 .tbs p {
   opacity: 0.5;
   margin-bottom: 0;
-  color: $larder-green-lighter;
+  color: white;
 }
 .tb {
-  background: $larder-green-darker;
+  background: $light-gray;
   flex: 0 0 40%;
   text-align: center;
   padding: 20px 0;
@@ -36,12 +36,12 @@
   border-radius: 0 10px 0 0;
 }
 .tb.active {
-  background: white;
-  color: black;
-  border-bottom: 2px solid $larder-green-primary;
+  background: $light-gray;
+  color: white;
+  border-bottom: 2px solid white;
   // border-bottom: opacity: 0.4;
 }
 .tb:hover {
-  border-bottom: 2px solid $larder-green-primary;
+  border-bottom: 2px solid $yellow;
   transition: 0.2s;
 }
