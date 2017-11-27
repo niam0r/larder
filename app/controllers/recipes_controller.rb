@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     # if params[:recipe].present?
@@ -89,13 +90,11 @@ class RecipesController < ApplicationController
   end
 
   def show
-    # @user = current_user
     @favourite = Favourite.new
-
-    @favourite_recipes_id = []
-    current_user.favourites.each do |favourite|
-      @favourite_recipes_id << favourite.recipe_id
-    end
+    # @favourite_recipes_id = []
+    # current_user.favourites.each do |favourite|
+    #   @favourite_recipes_id << favourite.recipe_id
+    # end
   end
 
   def destroy
