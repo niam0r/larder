@@ -1,6 +1,7 @@
 .recipe-info-container {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .recipe-info-container > * {
@@ -9,10 +10,28 @@
 
 .recipe-desc p {
   color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 13px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .recipe-method p {
   color: black;
 }
 
+.recipe-desc h2 {
+  font-size: 30px;
+  color: black;
+  margin-left: 10px;
+}
 
+.recipe-card-category {
+  position: absolute;
+  top: 230px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
