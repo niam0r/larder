@@ -29,9 +29,14 @@ class RecipesController < ApplicationController
     @user = current_user
 
     if params[:query].present?
+
+      ingredients = params[:query].split(",")
+
+      sql_condition = ingredients.map{|ingredient| "(name iLIKE '%#{ingredient.downcase}%' OR description iLIKE '%#{ingredient.downcase}%'
+        OR method iLIKE '%#{ingredient.downcase}%')"}.join(" AND ")
+
       # TODO CHANGE THIS TO USE PG SEARCH AND FILTER ON DESCRIPTION AND INGREDIENTS
-      @recipes = Recipe.where("name iLIKE '%#{params[:query].downcase}%' OR description iLIKE '%#{params[:query].downcase}%'
-        OR method iLIKE '%#{params[:query].downcase}%' " )
+      @recipes = Recipe.where(sql_condition)
     else
       @recipes = Recipe.all
     end
