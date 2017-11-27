@@ -1,7 +1,7 @@
 $card-margin-top: 20px;
 
 .card {
-  margin-top: $card-margin-top;
+  margin-top: 0px;
   height: calc((100vh - 70px - #{$card-margin-top } * 3 ) / 2 );
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
@@ -96,4 +96,13 @@ $card-margin-top: 20px;
 
 .product-image {
   background-size: cover;
+}
+
+.index-card {
+  padding: 8px;
+}
+
+.container.cards {
+  padding: 8px 8px 52px 8px;
+
 }
