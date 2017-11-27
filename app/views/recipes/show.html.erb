@@ -28,21 +28,24 @@
 
 <div class="recipe-info-container">
   <div class="recipe-desc">
+    <h2> Description </h2>
     <p> <%= @recipe.description %>
   </div>
   <div class="ingredient-names">
     <ul>
       <% @recipe.ingredients do |ingredient| %>
       <li>
-        <h2> <%= ingredient.name %></h2>
+        <h3> <%= ingredient.name %></h3>
       </li>
       <% end %>
     </ul>
   </div>
   <div class="recipe-method">
+    <h4> Method </h4>
     <p> <%= @recipe.method %> </p>
   </div>
 </div>
+
 
 <%= content_for(:after_js) do %>
   <script>
