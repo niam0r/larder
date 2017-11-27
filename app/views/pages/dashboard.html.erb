@@ -12,23 +12,30 @@
 
   <div class="container" id="cont-favourite">
     <div class="row">
-      <div class="col-xs-12 col-lg-12 offset-lg-1">
+      <div class="col-xs-12 col-sm-6 col-lg-4 index-card">
         <% @recipes.each do |recipe| %>
-          <div class="product">
-            <%= cl_image_tag recipe.photo, class:"product-image hidden-xs" %>
-            <div class='product-body'>
-              <h3><%= recipe.name %></h3>
-              <p><%= recipe.description %></p>
+          <%= link_to recipe_path(recipe) do %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('<%= cl_image_path(recipe.photo? ? recipe.photo : 'https://kitt.lewagon.com/placeholder/cities/shanghai') %>');">
+              <div class="card-category">
+                <%= recipe.name %>
+              </div>
+              <div class="card-servings">
+                <%= image_tag('cutlery.svg', size: "30x30", alt: "Servings", class: "cut") %> <%= recipe.servings %>
+              </div>
+              <div class="card-duration">
+                <%= recipe.duration %>min<%= image_tag('hourglass.svg', size: "30x30", alt: "Duration") %>
+              </div>
+              <% if recipe.favourited?(current_user) %>
+                <div class="card-favourite">
+                  <%= image_tag('full-star.png', size: "30x30", alt: "Favourite") %>
+                </div>
+              <% else %>
+                <div class="card-favourite">
+                  <%= image_tag('empty-star.png', size: "30x30", alt: "Favourite") %>
+                </div>
+              <% end %>
             </div>
-            <ul class="list-inline product-controls hidden-sm hidden-xs">
-              <li><%= image_tag('hourglass.svg', size: "20x20", alt: 'duration' ) %> <%= recipe.duration %></li>
-              <li><%= image_tag('cutlery.svg', size: "20x20", alt: 'cutlery') %> <%= recipe.servings %></li>
-              <li><%= link_to favourite_path(@user.favourite_for(recipe)), method: :delete, data: { confirm: 'Are you sure?'} do %>
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                <% end %>
-              </ul>
-              <%= link_to '', recipe_path(recipe), class: 'food-card-link' %>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -36,31 +43,38 @@
 
   <div class="container hidden" id="cont-recipe">
     <div class="row">
-      <div class="col-xs-12 col-lg-12 offset-lg-1">
-        <h3>My Recipes</h3>
+      <div class="col-xs-12 col-lg-12 offset-lg-1"
         <%= link_to new_recipe_path do %>
             <i class="fa fa-plus-square" aria-hidden="true"></i> Add your own recipe
         <% end %>
         <% @user.recipes.each do |recipe| %>
-          <div class="product">
-            <%= cl_image_tag recipe.photo, class:"product-image hidden-xs" %>
-            <div class='product-body'>
-              <h3><%= recipe.name %></h3>
-              <p><%= recipe.description %></p>
+          <%= link_to recipe_path(recipe) do %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('<%= cl_image_path(recipe.photo? ? recipe.photo : 'https://kitt.lewagon.com/placeholder/cities/shanghai') %>');">
+              <div class="card-category">
+                <%= recipe.name %>
+              </div>
+              <div class="card-servings">
+                <%= image_tag('cutlery.svg', size: "30x30", alt: "Servings", class: "cut") %> <%= recipe.servings %>
+              </div>
+              <div class="card-duration">
+                <%= recipe.duration %>min<%= image_tag('hourglass.svg', size: "30x30", alt: "Duration") %>
+              </div>
+              <% if recipe.favourited?(current_user) %>
+                <div class="card-favourite">
+                  <%= image_tag('full-star.png', size: "30x30", alt: "Favourite") %>
+                </div>
+              <% else %>
+                <div class="card-favourite">
+                  <%= image_tag('empty-star.png', size: "30x30", alt: "Favourite") %>
+                </div>
+              <% end %>
             </div>
-            <ul class="list-inline product-controls hidden-sm hidden-xs">
-              <li><%= image_tag('hourglass.svg', size: "20x20", alt: 'duration' ) %> <%= recipe.duration %></li>
-              <li><%= image_tag('cutlery.svg', size: "20x20", alt: 'cutlery') %> <%= recipe.servings %></li>
-              <li><%= link_to recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?'} do %>
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-              <% end %></li>
-            </ul>
-            <%= link_to '', recipe_path(recipe), class: 'food-card-link' %>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
   </div>
+
 </div>
 
 <script>
