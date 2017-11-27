@@ -1,15 +1,36 @@
 <% content_for(:title, 'Larder\'s recipes') %>
 
-<%= form_with url: recipes_path, method: :get, remote: true do |f| %>
-  <%= f.text_field :query, value: params[:query], class: 'form-control', id: 'inputSeach', autofocus: true, autocomplete: "off" %>
-  <%= f.submit 'Search', class: 'btn btn-primary hidden', id: 'submitSeachButton' %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'larder-banner.png' %>);">
+  <div class="banner-content gradient">
+    <div class="logo">
+     <%= image_tag('Larder-icon-logo.svg', size: "50x50", alt: "Logo") %>
+    </div>
+    <h1>Larder</h1>
+    <h3>Eat more. Waste Less</h3>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>What ingredients do you have?</p>
+          <%= form_with url: recipes_path, method: :get, local: true do |f| %>
+            <%= f.text_field :query, class: 'form-control', autofocus: true, id: 'home-input', placeholder: "e.g tomatoes, pasta, pork.."  %>
+            <%= f.submit 'Search', class: 'btn btn-primary hidden', id: 'home-submit' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <div class="container cards">
   <%= render 'recipes/recipes_container', recipes: @recipes, user: @user %>
 </div>
 
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'home_recipe_search' %>
+<% end %>
 <%= content_for(:after_js) do %>
   <%= javascript_pack_tag 'recipe_index' %>
 <% end %>
