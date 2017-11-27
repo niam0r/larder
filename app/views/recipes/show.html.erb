@@ -2,7 +2,7 @@
 
 <div class="half-screen" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @recipe.photo %>);">
   <div class="banner-content">
-    <div class="card-category">
+    <div class="recipe-card-category">
       <%= @recipe.name %>
     </div>
     <div class="card-servings">
@@ -26,25 +26,41 @@
   </div>
 </div>
 
-<div class="recipe-info-container">
+<div class="wrapper">
+  <div class="tabs">
+    <a class="tab active" id="tab-ingredients" href="#">
+      <h3> Ingredients </h3>
+    </a>
+    <a class="tab" id="tab-method" href="#">
+      <h3> Method </h3>
+    </a>
+  </div>
+</div>
+
+<div id="cont-ingredients">
   <div class="recipe-desc">
     <h2> Description </h2>
-    <p> <%= @recipe.description %>
+    <p> <%= @recipe.description %></p>
   </div>
   <div class="ingredient-names">
+    <h2> Ingredients </h2>
     <ul>
-      <% @recipe.ingredients do |ingredient| %>
-      <li>
-        <h3> <%= ingredient.name %></h3>
-      </li>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li>
+          <h3> <%= ingredient.name %></h3>
+        </li>
       <% end %>
     </ul>
   </div>
+</div>
+
+<div id="cont-method" class="hidden">
   <div class="recipe-method">
     <h4> Method </h4>
     <p> <%= @recipe.method %> </p>
   </div>
 </div>
+
 
 
 <%= content_for(:after_js) do %>
@@ -66,4 +82,32 @@
     })
   })
   </script>
+  <script>
+
+
+  let ingredients = document.getElementById('cont-ingredients');
+  let method = document.getElementById('cont-method');
+  let tabIngredients = document.getElementById('tab-ingredients');
+  let tabMethod = document.getElementById('tab-method');
+
+  tabIngredients.addEventListener("click", () => {
+    ingredients.classList.add("show");
+    ingredients.classList.remove('hidden');
+    method.classList.remove('show');
+    method.classList.add('hidden');
+    tabIngredients.classList.add("active");
+    tabMethod.classList.remove("active");
+
+  });
+
+  tabMethod.addEventListener('click', () => {
+    ingredients.classList.add("hidden");
+    ingredients.classList.remove('show');
+    method.classList.remove('hidden');
+    method.classList.add('show');
+    tabIngredients.classList.remove("active");
+    tabMethod.classList.add("active");
+  })
+</script>
+
 <% end %>
