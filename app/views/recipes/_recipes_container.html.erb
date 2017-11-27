@@ -1,4 +1,4 @@
-<div class="row" id="recipes-container">
+<div id="recipes-container">
   <% if recipes.any?  %>
     <% recipes.each do |recipe| %>
       <%= render 'recipes/recipe_card', user: user, recipe: recipe %>
@@ -10,4 +10,6 @@
       </div>
     </div>
   <% end %>
- </div>
+</div>
+
+
