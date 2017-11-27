@@ -1,7 +1,9 @@
 class FavouritesController < ApplicationController
   before_action :set_recipe, only: [ :create ]
+  before_action :authenticate_user!
 
   def create
+    redirect_to root_path if !user_signed_in?
     @favourite = Favourite.new
     @favourite.user = current_user
     @favourite.recipe = @recipe
