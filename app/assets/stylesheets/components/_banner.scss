@@ -1,6 +1,6 @@
 .banner {
   text-align: center;
-  height: 420px;  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  height: calc(100vh - 70px);  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   background-position: center;
   background-repeat: no-repeat;
