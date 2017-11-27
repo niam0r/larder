@@ -1,0 +1,9 @@
+<% if favourite %>
+  <%= link_to favourite_path(favourite), remote: true, method: :delete do %>
+    <%= image_tag('full-star.png', size: "30x30", alt: "Favourite") %>
+  <% end %>
+<% else %>
+  <%= link_to recipe_favourites_path(recipe), remote: true, method: :post do %>
+    <%= image_tag('empty-star.png', size: "30x30", alt: "Favourite") %>
+  <% end %>
+<% end %>

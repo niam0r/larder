@@ -12,22 +12,8 @@
       <%= @recipe.duration %>min<%= image_tag('hourglass.svg', size: "30x30", alt: "Duration") %>
     </div>
 
-    <div class="card-favourite">
-      <% if user_signed_in? %>
-        <% if current_user.favourites.include?(@recipe) %>
-            <%= link_to favourite_path(current_user.favourite_for(@recipe)), method: :delete do %>
-              <%= image_tag("full-star.png", size: "30x30", alt: "Favourited") %>
-            <% end %>
-        <% else %>
-          <% if @recipe != current_user.favourite_for(@recipe)&.recipe %>
-            <%= render 'favourites/form_favourites' %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <%= link_to new_user_session_path do %>
-          <%= image_tag("empty-star.png", size: "30x30", alt: "Add to favourite") %>
-        <% end %>
-      <% end %>
+    <div class="card-favourite" id="recipe-<%= @recipe.id %>">
+      <%= render 'favourites/favourite_button', favourite: current_user.favourite_for(@recipe), recipe: @recipe %>
     </div>
   </div>
 </div>
