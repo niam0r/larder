@@ -25,6 +25,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
 gem 'pg_search'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'pry-byebug'
