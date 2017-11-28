@@ -1,5 +1,21 @@
 <% content_for(:title, 'My Larder') %>
 
+<div class="container dashboard-info text-center">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+      <div class="dashboard-pic">
+        <% avatar_url = current_user.facebook_picture_url || current_user.avatar %>
+        <%= image_tag avatar_url, class: 'img-circle', size: '80x80'%>
+      </div>
+      <div class="dashboard-name">
+        <% full_name = current_user.first_name + " " + current_user.last_name %>
+        <%= full_name %>
+      </div>
+     <%= link_to "Edit", edit_user_registration_path(current_user), class: 'edit-profile-button' %>
+    </div>
+  </div>
+</div>
+
 <div class="wrapper">
   <div class="tbs">
     <a class="tb active" id="tb-favourite" href="#">
