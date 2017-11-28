@@ -1,10 +1,26 @@
 <%= simple_form_for @recipe do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :duration %>
-  <%= f.input :cuisine %>
-  <%= f.input :servings %>
-  <%= f.input :method %>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :name, placeholder: 'Name' %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :cuisine, placeholder: 'Cuisine type' %>
+    </div>
+  </div>
+
+  <%= f.input :description, placeholder: 'Short description of your recipe' %>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :duration, placeholder: 'Time needed' %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :servings, placeholder: 'Servings' %>
+    </div>
+  </div>
+
+  <%= f.input :method, placeholder: 'Instructions to cook your recipe' %>
   <%= f.input :photo %>
   <div id="quantities">
     <%= f.simple_fields_for :quantities do |q| %>
@@ -14,20 +30,8 @@
         </div>
     <% end %>
   </div>
-
+  <br>
   <div class="text-center">
-    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= f.button :submit, class: 'btn btn-primary', id: 'full-width' %>
   </div>
 <% end %>
-
-
-<!-- = simple_form_for @project do |f|
-  = f.input :name
-  = f.input :description
-  %h3 Tasks
-  #tasks
-    = f.simple_fields_for :tasks do |task|
-      = render 'task_fields', f: task
-    .links
-      = link_to_add_association 'add task', f, :tasks
-  = f.submit -->
