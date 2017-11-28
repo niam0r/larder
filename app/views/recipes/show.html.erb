@@ -2,25 +2,29 @@
 
 
 <div class="recipe-header">
-  <div class="card" style="background-image: url(<%= @recipe.photo %>);">
-    <div class="card-gradient">
-      <div class="card-category">
-        <%= @recipe.name %>
-      </div>
-      <div class="card-info">
-        <div class="card-servings">
-          <%= image_tag('Larder-icon-servings', size: "20x20", alt: "Servings", class: "cut") %> <%= @recipe.servings %> servings
+    <div class="card" style="background-image: url(<%= @recipe.photo %>);">
+      <div class="card-gradient">
+        <div class="card-category">
+          <%= @recipe.name %>
         </div>
-        <div class="card-duration">
-          <%= image_tag('Larder-icon-duration', size: "20x20", alt: "Duration") %> <%= @recipe.duration %> min
+        <div class="card-info">
+          <div class="card-servings">
+            <%= image_tag('Larder-icon-servings', size: "20x20", alt: "Servings", class: "cut") %> <%= @recipe.servings %> servings
+          </div>
+          <div class="card-duration">
+            <%= image_tag('Larder-icon-duration', size: "20x20", alt: "Duration") %> <%= @recipe.duration %> min
+          </div>
         </div>
-      </div>
-      <div class="card-favourite" id="recipe-<%= @recipe.id %>">
-        <%= render 'favourites/favourite_button', favourite: current_user.favourite_for(@recipe), recipe: @recipe %>
-      </div>
-    </div>
-</div>
 
+        <div class="card-favourite" id="recipe-<%= @recipe.id %>">
+          <% if current_user %>
+            <%= render 'favourites/favourite_button', favourite: current_user.favourite_for(@recipe), recipe: @recipe %>
+          <% else %>
+            <%= render 'favourites/favourite_button_not_logged_in' %>
+          <% end %>
+        </div>
+    </div>
+  </div>
 </div>
 
 <div class="wrapper">
