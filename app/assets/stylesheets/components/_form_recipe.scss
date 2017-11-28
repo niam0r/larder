@@ -5,6 +5,40 @@
   }
 }
 
-#full-width {
+.full-width {
   width: 100% !important;
 }
+
+.select2-selection {
+  height: 39px !important;
+  // width: 200px !important;
+}
+.quantities-fields {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .f-item-i {
+    flex: 0 0 210px !important;
+  }
+  .f-item-q {
+    flex: 0 0 90px !important;
+  }
+  .trash-icon {
+    position: absolute;
+    right: 0px;
+    bottom: 21px;
+    i {
+      font-size: 20px;
+    }
+  }
+}
+// .f-container {
+//   display: flex;
+//   position: absolute;
+// }
+
+// .f-item {
+//   position: relative;
+// }
+
