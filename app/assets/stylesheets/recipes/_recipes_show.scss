@@ -9,7 +9,7 @@
 }
 
 .recipe-desc p {
-  color: black;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,13 +19,22 @@
 }
 
 .recipe-method p {
-  color: black;
+  color: white;
 }
 
+
+.recipe-card-category {
+  position: absolute;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  top: 230px;
+}
 .recipe-desc h2 {
   font-size: 30px;
-  color: black;
+  color: white;
   margin-left: 10px;
+
 }
 
 .recipe-card-category {

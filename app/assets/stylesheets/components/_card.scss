@@ -2,12 +2,11 @@ $card-margin-top: 20px;
 
 .card {
   margin-top: 0px;
-  height: calc((100vh - 70px - #{$card-margin-top } * 3 ) / 2 );
+  height: 248px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
-  padding: 10px;
   border-radius: 7px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
   transition: all 0.2s cubic-bezier(.25,.8,.25,1);
@@ -27,22 +26,27 @@ $card-margin-top: 20px;
   // align-items: center;
 }
 .card-servings {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 15px;
-    text-transform: uppercase;
-    font-weight: lighter;
+    // position: absolute;
+    // bottom: 10px;
+    // left: 10px;
+    // font-size: 15px;
+    // text-transform: uppercase;
+    // font-weight: lighter;
+    display: inline-block;
+    padding-right: 8px;
 }
-.card-servings .cut {
-  margin-right: 5px;
-}
+// .card-servings .cut {
+//   margin-right: 5px;
+// }
+
 .card-duration {
-  position: absolute;
-    left: 70px;
-    font-size: 15px;
-    bottom: 10px;
-    font-weight: lighter;
+  // position: absolute;
+  //   left: 70px;
+  //   font-size: 15px;
+  //   bottom: 10px;
+  //   font-weight: lighter;
+   display: inline-block;
+
 }
 .dashboard-card {
   height: 100px;
@@ -55,18 +59,18 @@ $card-margin-top: 20px;
 }
 .card-favourite {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  z-index: 3;
+  padding: 16px;
+  right: 0px;
+
 }
 .card-category {
-  position: absolute;
-  top: 200px;
-  bottom: 50px;
-  left: 10px;
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: lighter;
+    position: absolute;
+    bottom: 44px;
+    left: 0;
+    padding: 8px 16px;
+    width: 100%;
+    font-size: 22px;
+    font-weight: lighter;
 }
 .card-description {
   position: absolute;
@@ -101,5 +105,26 @@ $card-margin-top: 20px;
   padding: 8px;
 }
 .container.cards {
-  padding: 8px 8px 52px 8px;
+  padding: 8px 8px 68px 8px;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    padding: 8px 16px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 20px;
+}
+
+.card-gradient {
+  height: 100%;
+  width: 100%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#263336+0,263336+79,263336+100&0.24+0,0.56+79,0.8+100 */
+background: -moz-linear-gradient(top, rgba(38,51,54,0.24) 0%, rgba(38,51,54,0.56) 79%, rgba(38,51,54,0.8) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(38,51,54,0.24) 0%,rgba(38,51,54,0.56) 79%,rgba(38,51,54,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(38,51,54,0.24) 0%,rgba(38,51,54,0.56) 79%,rgba(38,51,54,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d263336', endColorstr='#cc263336',GradientType=0 ); /* IE6-9 */
 }
