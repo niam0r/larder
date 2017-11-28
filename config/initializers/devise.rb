@@ -3,9 +3,11 @@
 Devise.setup do |config|
    config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
     scope: 'email',
-    info_fields: 'email, first_name, last_name',
+    info_fields: 'email,first_name,last_name',
     image_size: 'square',  # 50x50, guaranteed ratio
     secure_image_url: true
+
+   # config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"], scope: 'email', info_fields: 'name,email'
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
