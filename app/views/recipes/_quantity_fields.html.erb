@@ -1,11 +1,13 @@
 <div class="nested-fields quantities-fields row">
   <div class="col-xs-5">
-    <%= f.association :ingredient, collection: Ingredient.all, prompt: 'Choose an ingredient', input_html: { class: 'ingredient-dropdown' } %>
+    <%= f.association :ingredient, collection: Ingredient.all, prompt: 'Choose or add ingredient', input_html: { class: 'ingredient-dropdown' } %>
   </div>
   <div class="col-xs-5">
-    <%=  f.input :quantity %>
+    <%=  f.input :quantity, placeholder: 'Quantity necessary' %>
   </div>
-  <div class="col-xs-2">
-    <%= link_to_remove_association "x", f, class: 'btn btn-danger' %>
+  <div class="col-xs-1">
+    <%= link_to_remove_association f do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% end %>
   </div>
 </div>
