@@ -27,7 +27,7 @@ class RecipesController < ApplicationController
       # if no search term then just show them all
     # end
 
-    @user = current_user
+    current_user ? @user = current_user : @user = User.new
 
     if params[:query].present?
 
