@@ -22,10 +22,12 @@
 
   <div class="container hidden" id="cont-recipe">
     <div class="col-xs-12 col-lg-12 offset-lg-1"
-      <%= link_to new_recipe_path do %>
-          <i class="fa fa-plus-square" aria-hidden="true"></i> Add your own recipe
-      <% end %>
-     </div>
+      <div class="text-center">
+        <%= link_to new_recipe_path do %>
+            <i class="fa fa-plus-square" aria-hidden="true"></i> Add your own recipe
+        <% end %>
+      </div>
+    </div>
     <div class="row">
       <% @user.recipes.each do |recipe| %>
         <div class="col-xs-12 col-sm-6 col-lg-4 index-card">
