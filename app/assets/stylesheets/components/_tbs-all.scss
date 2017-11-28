@@ -1,11 +1,11 @@
 .tbs {
-  background: $light-gray;
+  background: white;
   display: flex;
   justify-content: center;
-  padding: 10px 10px 0 10px
+  padding: 10px 10px 10px 10px;
 }
 .tbs a {
-  color: white;
+  color: black;
 }
 .tbs a:hover {
   cursor: pointer;
@@ -17,15 +17,15 @@
   font-size: 17px;
   font-weight: 400;
   margin-top: 0;
-  color: white;
+  color: black;
 }
 .tbs p {
   opacity: 0.9;
   margin-bottom: 0;
-  color: white;
+  color: black;
 }
 .tb {
-  background: $light-gray;
+  background: white;
   flex: 0 0 40%;
   text-align: center;
   padding: 5px 0;
@@ -37,7 +37,7 @@
   border-radius: 0 10px 0 0;
 }
 .tb.active {
-  background: $light-gray;
+  background: white;
   color: white;
   border-bottom: 2px solid white;
   // border-bottom: opacity: 0.4;
