@@ -1,0 +1,2 @@
+var button = document.getElementById('recipe-<%= @recipe.id %>')
+button.innerHTML = "<%= j render 'favourites/favourite_button', favourite: current_user.favourite_for(@recipe), recipe: @recipe %>"
