@@ -1,46 +1,21 @@
 <div class="col-xs-12 col-sm-6 col-lg-4 index-card">
-<<<<<<< HEAD
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('<%= cl_image_path(recipe.photo? ? recipe.photo : 'https://kitt.lewagon.com/placeholder/cities/shanghai') %>');">
-    <div class="card-category">
-      <%= recipe.name %>
-=======
-  <%= link_to recipe_path(recipe) do %>
-    <div class="card" style="background-image: url('<%= cl_image_path(recipe.photo? ? recipe.photo : 'https://kitt.lewagon.com/placeholder/cities/shanghai') %>');">
-      <div class="card-gradient">
-        <div class="card-category">
-          <%= recipe.name %>
-        </div>
-        <div class="card-info">
-          <div class="card-servings">
-            <%= image_tag('Larder-icon-servings.svg', size: "20x20", alt: "Servings", class: "cut") %> <%= recipe.servings %> servings
-          </div>
-          <div class="card-duration">
-            <%= image_tag('Larder-icon-duration.svg', size: "20x20", alt: "Duration") %><%= recipe.duration %> min
-          </div>
-
-        </div>
-        <% if recipe.favourited?(user) %>
-          <div class="card-favourite">
-            <%= image_tag('full-star.png', size: "30x30", alt: "Favourite") %>
-          </div>
-        <% else %>
-          <div class="card-favourite">
-            <%= image_tag('empty-star.png', size: "30x30", alt: "Favourite") %>
-          </div>
-        <% end %>
+  <div class="card" style="background-image: url('<%= cl_image_path(recipe.photo? ? recipe.photo : 'https://kitt.lewagon.com/placeholder/cities/shanghai') %>');">
+    <div class="card-gradient">
+      <div class="card-category">
+        <%= recipe.name %>
       </div>
->>>>>>> master
+      <div class="card-info">
+        <div class="card-servings">
+          <%= image_tag('Larder-icon-servings.svg', size: "20x20", alt: "Servings", class: "cut") %> <%= recipe.servings %> servings
+        </div>
+        <div class="card-duration">
+          <%= image_tag('Larder-icon-duration.svg', size: "20x20", alt: "Duration") %><%= recipe.duration %> min
+        </div>
+      </div>
+      <div class="card-favourite" id="recipe-<%= recipe.id %>">
+        <%= render 'favourites/favourite_button', favourite: user.favourite_for(recipe), recipe: recipe %>
+      </div>
     </div>
-    <div class="card-servings">
-      <%= image_tag('cutlery.svg', size: "30x30", alt: "Servings", class: "cut") %> <%= recipe.servings %>
-    </div>
-    <div class="card-duration">
-      <%= recipe.duration %>min<%= image_tag('hourglass.svg', size: "30x30", alt: "Duration") %>
-    </div>
-    <div class="card-favourite" id="recipe-<%= recipe.id %>">
-      <%= render 'favourites/favourite_button', favourite: user.favourite_for(recipe), recipe: recipe %>
-    </div>
+    <%= link_to '', recipe_path(recipe), class: 'card-link' %>
   </div>
-  <%= link_to '', recipe_path(recipe), class: 'card-link' %>
 </div>
-
