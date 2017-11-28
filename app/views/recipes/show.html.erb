@@ -1,21 +1,26 @@
 <% content_for(:title, @recipe.name) %>
 
-<div class="half-screen" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @recipe.photo %>);">
-  <div class="banner-content">
-    <div class="recipe-card-category">
-      <%= @recipe.name %>
-    </div>
-    <div class="card-servings">
-      <%= image_tag('cutlery.svg', size: "30x30", alt: "Servings", class: "cut") %> <%= @recipe.servings %>
-    </div>
-    <div class="card-duration">
-      <%= @recipe.duration %>min<%= image_tag('hourglass.svg', size: "30x30", alt: "Duration") %>
-    </div>
 
-    <div class="card-favourite" id="recipe-<%= @recipe.id %>">
-      <%= render 'favourites/favourite_button', favourite: current_user.favourite_for(@recipe), recipe: @recipe %>
+<div class="recipe-header">
+  <div class="card" style="background-image: url(<%= @recipe.photo %>);">
+    <div class="card-gradient">
+      <div class="card-category">
+        <%= @recipe.name %>
+      </div>
+      <div class="card-info">
+        <div class="card-servings">
+          <%= image_tag('Larder-icon-servings', size: "20x20", alt: "Servings", class: "cut") %> <%= @recipe.servings %> servings
+        </div>
+        <div class="card-duration">
+          <%= image_tag('Larder-icon-duration', size: "20x20", alt: "Duration") %> <%= @recipe.duration %> min
+        </div>
+      </div>
+      <div class="card-favourite" id="recipe-<%= @recipe.id %>">
+        <%= render 'favourites/favourite_button', favourite: current_user.favourite_for(@recipe), recipe: @recipe %>
+      </div>
     </div>
-  </div>
+</div>
+
 </div>
 
 <div class="wrapper">
@@ -29,27 +34,29 @@
   </div>
 </div>
 
-<div id="cont-ingredients">
-  <div class="recipe-desc">
-    <h2> Description </h2>
-    <p> <%= @recipe.description %></p>
+<div class="recipe-details">
+  <div id="cont-ingredients">
+    <div class="recipe-desc">
+      <h2> Description </h2>
+      <p> <%= @recipe.description %></p>
+    </div>
+    <div class="ingredient-names">
+      <h2> Ingredients </h2>
+      <ul>
+        <% @recipe.ingredients.each do |ingredient| %>
+          <li>
+            <%= ingredient.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-  <div class="ingredient-names">
-    <h2> Ingredients </h2>
-    <ul>
-      <% @recipe.ingredients.each do |ingredient| %>
-        <li>
-          <h3> <%= ingredient.name %></h3>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
 
-<div id="cont-method" class="hidden">
-  <div class="recipe-method">
-    <h4> Method </h4>
-    <p> <%= @recipe.method %> </p>
+  <div id="cont-method" class="hidden">
+    <div class="recipe-method">
+      <h4> Method </h4>
+      <p> <%= @recipe.method %> </p>
+    </div>
   </div>
 </div>
 
