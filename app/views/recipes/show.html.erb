@@ -47,9 +47,9 @@
     <div class="ingredient-names">
       <h2> Ingredients </h2>
       <ul>
-        <% @recipe.ingredients.each do |ingredient| %>
+        <% @recipe.quantities.each do |quantity| %>
           <li>
-            <%= ingredient.name %>
+            <%= quantity.quantity %> <%= quantity.ingredient.name %>
           </li>
         <% end %>
       </ul>
