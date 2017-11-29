@@ -3,9 +3,57 @@
 }
 
 .login-form:focus{
-    color: white;
+    color: black;
     outline: none;
     box-shadow: none;
     border:1px solid $orange;
   }
 
+.btn-login {
+  text-align: center;
+  width: 100%;
+  border-radius: 15px;
+  background-color: #ffa502;
+  color: white;
+}
+
+.login-form a {
+  font-weight: lighter;
+  color: #333;
+  text-align: center;
+}
+
+.control-label {
+  font-weight: lighter;
+}
+
+.form-inputs {
+  margin-top: 45px;
+  text-align: center;
+}
+
+.user_email {
+  margin-top: 22px;
+}
+
+#user_email {
+  border-radius: 15px;
+}
+
+#user_password {
+  border-radius: 15px;
+}
+
+.fb-login-button {
+  text-align: center;
+}
+
+.create-account {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.divider {
+  margin-top: 25px;
+  margin-bottom: 0px;
+}

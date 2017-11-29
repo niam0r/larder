@@ -1,28 +1,31 @@
 <div class="login-form">
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-    <h2>Log in</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <h2>Log in</h2>
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
-        <%= f.input :email, required: false, autofocus: true, :input_html => { :class => "login-form" } %>
-        <%= f.input :password, required: false, :input_html => { :class => "login-form" } %>
-        <%= render "devise/shared/forgot-password" %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+          <p class= "divider"> -------- or -------- </p>
+          <%= f.input :email, required: false, autofocus: true, :input_html => { :class => "login-form" } %>
+          <%= f.input :password, required: false, :input_html => { :class => "login-form" } %>
+          <%= render "devise/shared/forgot-password", id: 'forgot-password' %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Log in", class: 'btn-login' %>
+        </div>
+      <% end %>
+        <p class="create-account">
+          New to Larder? <%= render "devise/shared/links" %>
+        </p>
       </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Log in" %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
-
     </div>
   </div>
 </div>
-</div>
+
+
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
