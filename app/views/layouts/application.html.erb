@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= yield(:title) %></title>
+
+    <meta property="og:title" content="<%= content_for?(:meta_title) ? yield(:meta_title) : 'Larder Recipes' %>">
+    <meta property="og:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : 'Eat more. Waste Less' %>">
+    <meta property="og:url" content="<%= content_for?(:meta_url) ? yield(:meta_url) :  'http://www.larder-recipes.co.uk/' %>">
+    <meta property="og:image" content="<%= image_url content_for?(:meta_image_url) ? yield(:meta_image_url) : 'larder-banner.png' %>">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
