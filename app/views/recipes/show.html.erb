@@ -65,7 +65,6 @@
 </div>
 
 
-
 <%= content_for(:after_js) do %>
   <script>
   function bindSweetAlertButtonDemo() {
@@ -93,7 +92,8 @@
   let tabIngredients = document.getElementById('tab-ingredients');
   let tabMethod = document.getElementById('tab-method');
 
-  tabIngredients.addEventListener("click", () => {
+  tabIngredients.addEventListener("click", (event) => {
+    event.preventDefault();
     ingredients.classList.add("show");
     ingredients.classList.remove('hidden');
     method.classList.remove('show');
@@ -103,7 +103,8 @@
 
   });
 
-  tabMethod.addEventListener('click', () => {
+  tabMethod.addEventListener('click', (event) => {
+    event.preventDefault();
     ingredients.classList.add("hidden");
     ingredients.classList.remove('show');
     method.classList.remove('hidden');
