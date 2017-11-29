@@ -1,6 +1,3 @@
-<% content_for(:title, @recipe.name) %>
-
-
 <div class="recipe-header">
     <div class="card" style="background-image: url(<%= @recipe.photo %>);">
       <div class="card-gradient">
@@ -9,10 +6,10 @@
         </div>
         <div class="card-info">
           <div class="card-servings">
-            <%= image_tag('Larder-icon-servings', size: "20x20", alt: "Servings", class: "cut") %> <%= @recipe.servings %> servings
+            <%= image_tag('servings.svg', size: "20x20", alt: "Servings", class: "cut") %> <%= @recipe.servings %> servings
           </div>
           <div class="card-duration">
-            <%= image_tag('Larder-icon-duration', size: "20x20", alt: "Duration") %> <%= @recipe.duration %> min
+            <%= image_tag('duration.svg', size: "20x20", alt: "Duration") %> <%= @recipe.duration %> min
           </div>
         </div>
 
@@ -23,6 +20,8 @@
             <%= render 'favourites/favourite_button_not_logged_in' %>
           <% end %>
         </div>
+
+        <div class="fb-share-button" data-href="http://www.larder-recipes.co.uk/recipes/<%= @recipe.id %>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.larder-recipes.co.uk/recipes/<%= @recipe.id %>&src=sdkpreparse">Share</a></div>
     </div>
   </div>
 </div>
@@ -47,9 +46,9 @@
     <div class="ingredient-names">
       <h2> Ingredients </h2>
       <ul>
-        <% @recipe.ingredients.each do |ingredient| %>
+        <% @recipe.quantities.each do |quantity| %>
           <li>
-            <%= ingredient.name %>
+            <%= quantity.quantity %> <%= quantity.ingredient.name %>
           </li>
         <% end %>
       </ul>

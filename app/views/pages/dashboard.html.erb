@@ -5,11 +5,13 @@
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" id="icon-white" ></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="/users/edit">Edit profile</a></li>
-        <li><a href="">Log out</a></li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+        <% end %>
       </ul>
   </div>
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="text-center">
       <div class="dashboard-pic">
         <% avatar_url = current_user.facebook_picture_url || current_user.avatar %>
         <%= image_tag avatar_url, class: 'img-circle', size: '80x80'%>

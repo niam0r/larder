@@ -1,5 +1,3 @@
-console.log('hello from pack index recipe')
-
 const submitButton = document.getElementById('submitSeachButton')
 const inputSeach = document.getElementById('inputSeach')
 
@@ -11,17 +9,53 @@ inputSeach.addEventListener('input', () => {
 })
 
 $(window).scroll(function(){
-    if ($(window).scrollTop() >= 426) {
-       $('nav').addClass('fixed-header');
-       $('.cards').addClass('container-after-scroll')
-    }
-    else {
-       $('nav').removeClass('fixed-header');
-       $('.cards').removeClass('container-after-scroll')
-    }
+  if ($(window).scrollTop() >= 426) {
+     $('nav').addClass('fixed-header');
+     $('.cards').addClass('container-after-scroll');
+  }
+  else {
+     $('nav').removeClass('fixed-header');
+     $('.cards').removeClass('container-after-scroll');
+  }
 });
 
-/* scrollTop() >= 240
-   Should be equal the the height of the header
- */
+// Hide Header on on scroll down
+let didScroll;
+let lastScrollTop = 0;
+const delta = 5;
+const footerHeight = $('footer').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    let st = $(this).scrollTop();
+
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > footerHeight){
+        // Scroll Down
+        $('#foot').removeClass('foot').addClass('foot-hide');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('#foot').removeClass('foot-hide').addClass('foot');
+        }
+    }
+
+    lastScrollTop = st;
+}
+
 

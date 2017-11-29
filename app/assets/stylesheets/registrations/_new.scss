@@ -1,5 +1,6 @@
 .sign-up-form {
   text-align: center;
+  padding: 10px 20px;
 }
 
 #user_first_name {
@@ -22,20 +23,37 @@
   }
 
 .sign-up {
- background: #ffa502;
- border-radius: 10px;
- color: white;
- margin-bottom: 10px;
- border-color: white;
- width: 100%;
+   background: #ffa502;
+   border-radius: 10px;
+   color: white;
+   margin-bottom: 10px;
+   border-color: white;
+   width: 100%;
+   &:hover{
+    background-color: $larder-blue;
+    color: white;
+    border-style: none;
+   }
+
 }
 
 .sign-up-form a {
   font-weight: normal;
-  color: #333;
+ color: #333;
+ &:hover {
+  color: #ffa502;
+  text-decoration: none;
+ }
 }
 
 .account-q {
  font-weight: lighter;
  padding-bottom: 20px;
+}
+
+#user_email:focus, #user_password:focus, #user_password_confirmation:focus, #user_first_name:focus, #user_last_name:focus {
+  color: black;
+  outline: none;
+  box-shadow: none;
+  border:1px solid $orange;
 }
