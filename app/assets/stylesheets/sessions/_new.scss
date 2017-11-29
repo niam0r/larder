@@ -44,8 +44,23 @@
   border-radius: 15px;
 }
 
-.fb-login-button {
+#fb-login-button {
   text-align: center;
+  background-color: #3b5998;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+#link-td {
+  padding: 10px;
+}
+
+#sign-in-link {
+  color: white;
+  font-size: 17px;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .create-account {
@@ -56,5 +71,11 @@
 .divider {
   margin-top: 25px;
   margin-bottom: 0px;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
