@@ -1,6 +1,5 @@
 <% content_for(:title, 'Larder\'s recipes') %>
 
-
 <div class="homepage-colour">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'larder-banner.png' %>);">
     <div class="banner-content gradient">
@@ -10,27 +9,28 @@
       <h1>Larder</h1>
       <h3>Eat more. Waste Less</h3>
       <p>Which ingredients do you have?</p>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <%= form_with url: recipes_path, method: :get, remote: true do |f| %>
-              <%= f.text_field :query, value: params[:query], class: 'form-control', id: 'inputSeach', autofocus: true, autocomplete: "off" %>
-              <%= f.submit 'Search', class: 'btn btn-primary hidden', id: 'submitSeachButton' %>
-            <% end %>
-          </div>
-        </div>
+    </div>
+  </div>
+</div>
+
+<nav class="search">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= form_with url: recipes_path, method: :get, remote: true do |f| %>
+          <%= f.text_field :query, value: params[:query], class: 'form-control', id: 'inputSeach', autofocus: true, autocomplete: "off" %>
+          <%= f.submit 'Search', class: 'btn btn-primary hidden', id: 'submitSeachButton' %>
+        <% end %>
       </div>
     </div>
   </div>
-
-
-
+</nav>
 
 <!-- set the form to go back to the recipes path but edit the method back to get to load index not the create action-->
 <!-- then add a text field tag for the search to display instance variable of search (in the recipes controller) and if there is nothing have a placeholder in the search box -->
 <!--  create the button for someone to submit with bootstrap-->
 
-<div class="container cards">
+<div class="cards container">
   <%= render 'recipes/recipes_container', recipes: @recipes, user: @user %>
 </div>
 
