@@ -9,16 +9,15 @@ inputSeach.addEventListener('input', () => {
 })
 
 $(window).scroll(function(){
-    if ($(window).scrollTop() >= 426) {
-       $('nav').addClass('fixed-header');
-       $('.cards').addClass('container-after-scroll');
-    }
-    else {
-       $('nav').removeClass('fixed-header');
-       $('.cards').removeClass('container-after-scroll');
-    }
+  if ($(window).scrollTop() >= 426) {
+     $('nav').addClass('fixed-header');
+     $('.cards').addClass('container-after-scroll');
+  }
+  else {
+     $('nav').removeClass('fixed-header');
+     $('.cards').removeClass('container-after-scroll');
+  }
 });
-
 
 // Hide Header on on scroll down
 let didScroll;
