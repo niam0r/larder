@@ -1,26 +1,18 @@
-#user_first_name {
+
+#user_last_name, #user_first_name, #user_password, #user_password_confirmation, #user_confirm_your_current_password  {
   border-radius: 15px;
 }
 
-#user_last_name {
-  border-radius: 15px;
-}
-
-#user_password_confirmation {
-  border-radius: 15px;
-}
-
-#user_confirm_your_current_password {
-  border-radius: 15px;
-}
-
-.form-inputs h1 {
+.form-inputs-edit h1 {
+  font-style: $body-font;
   font-size: 17px;
   color: black;
 }
-.password-change h1 {
+.password-edit h1 {
   font-size: 17px;
   color: black;
+  font-style: $body-font;
+  padding-bottom: 10px;
 }
 
 .help-block {
@@ -35,12 +27,39 @@
 
 #user_add_in_new_password {
   border-radius: 15px;
+  background-color: #E3E3E3;
 }
 
-#user_reconfirm_new_password {
+#user_confirm_new_password {
   border-radius: 15px;
+  background-color: #E3E3E3;
 }
 
-.text-center h3 {
-  font-size: 15px
+#user_add_in_new_password:hover {
+  border-radius: 15px;
+  background-color: white;
+}
+
+#user_confirm_new_password:hover {
+  border-radius: 15px;
+  background-color: white;
+}
+
+#user_confirm_your_current_password {
+  border-radius: 15px;
+  padding-bottom: 15px;
+}
+
+.form-actionstext-center {
+  padding-bottom: 40px;
+}
+
+.confirm-password p {
+  font-size: 13px;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  font-weight: bold;
+}
+
+.text-center {
+  padding-top: 10px;
 }
