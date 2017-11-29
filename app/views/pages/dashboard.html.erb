@@ -1,6 +1,13 @@
 <% content_for(:title, 'My Larder') %>
 
 <div class="container dashboard-info text-center">
+  <div class="dropdown float-right">
+    <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" id="icon-white" ></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="/users/edit">Edit profile</a></li>
+        <li><a href="">Log out</a></li>
+      </ul>
+  </div>
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-lg-4">
       <div class="dashboard-pic">
@@ -11,7 +18,7 @@
         <% full_name = current_user.first_name + " " + current_user.last_name %>
         <%= full_name %>
       </div>
-     <%= link_to "Edit", edit_user_registration_path(current_user), class: 'edit-profile-button' %>
+
     </div>
   </div>
 </div>
