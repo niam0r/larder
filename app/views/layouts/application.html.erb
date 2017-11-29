@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= yield(:title) %></title>
+    <%= favicon_link_tag 'larder-favicon.png' %>
+
 
     <meta property="og:title" content="<%= content_for?(:meta_title) ? yield(:meta_title) : 'Larder Recipes' %>">
     <meta property="og:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : 'Eat more. Waste Less' %>">
