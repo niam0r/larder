@@ -1,7 +1,11 @@
 .login-form h2 {
-  color: red;
+  text-align: center;
 }
 
-.login-form-input {
-  border-radius: 3px;
-}
+.login-form:focus{
+    color: white;
+    outline: none;
+    box-shadow: none;
+    border:1px solid $orange;
+  }
+
