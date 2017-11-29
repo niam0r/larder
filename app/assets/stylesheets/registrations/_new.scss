@@ -1,0 +1,41 @@
+.sign-up-form {
+  text-align: center;
+}
+
+#user_first_name {
+  border-radius: 15px;
+}
+
+#user_last_name {
+  border-radius: 15px;
+}
+
+#user_password_confirmation {
+  border-radius: 15px;
+}
+
+.sign-up-form:focus{
+    color: #333;
+    outline: none;
+    box-shadow: none;
+    border:1px solid $orange;
+  }
+
+.sign-up {
+ background: #ffa502;
+ border-radius: 10px;
+ color: white;
+ margin-bottom: 10px;
+ border-color: white;
+ width: 100%;
+}
+
+.sign-up-form a {
+  font-weight: normal;
+ color: #333;
+}
+
+.account-q {
+ font-weight: lighter;
+ padding-bottom: 20px;
+}
