@@ -25,10 +25,18 @@
       </div>
     </div>
   </nav>
+  <!-- <br>
+  <br>
+  <br> -->
 
   <!-- set the form to go back to the recipes path but edit the method back to get to load index not the create action-->
   <!-- then add a text field tag for the search to display instance variable of search (in the recipes controller) and if there is nothing have a placeholder in the search box -->
   <!--  create the button for someone to submit with bootstrap-->
+
+  <!-- <div class="chevron">
+    <%= image_tag('chevron-down', size: "50x50", alt: "Down") %>
+  </div> -->
+
 
   <div class="cards container">
     <%= render 'recipes/recipes_container', recipes: @recipes, user: @user %>
