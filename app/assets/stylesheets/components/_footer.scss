@@ -1,55 +1,38 @@
-
-.footer {
+.foot {
+  cursor: pointer;
   background: orange;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
   position: fixed;
   bottom: 0;
-  z-index: 6;
+  z-index: 100;
   width: 100%;
-  height: 60px;
+  height: 50px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  // transition: top 0.5s ease-in-out;
 }
 .footer-links {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  // justify-content: space-around;
   align-items: center;
-  align-content: stretch;
+  // align-content: stretch;
 }
 .footer-links a {
-  color: black;
-  // opacity: 0.15;
+  opacity: 0.8;
+  color: white;
   text-decoration: none;
-  // font-size: 30px;
   height: 30px;
   padding: 0px 45px;
-}
-
-.footer-links a:hover {
+  &:hover {
+  color: $larder-blue;
   opacity: 1;
+  }
 }
-.footer .fa-heart {
-  color: #D23333;
-}
-
-.footer-user-icon img {
+.footer-icon img {
   height: 30px;
-}
-
-.footer-star-icon img {
-  height: 30px;
-}
-
-.footer-recipe-icon img {
-  height: 30px;
-}
-
-.footer-mag-icon img {
   color: white;
-  height: 30px;
 }
