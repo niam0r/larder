@@ -10,4 +10,18 @@ inputSeach.addEventListener('input', () => {
   window.history.replaceState({}, null, "recipes?query=" + inputSeach.value);
 })
 
+$(window).scroll(function(){
+    if ($(window).scrollTop() >= 426) {
+       $('nav').addClass('fixed-header');
+       $('.cards').addClass('container-after-scroll')
+    }
+    else {
+       $('nav').removeClass('fixed-header');
+       $('.cards').removeClass('container-after-scroll')
+    }
+});
+
+/* scrollTop() >= 240
+   Should be equal the the height of the header
+ */
 
