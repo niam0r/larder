@@ -2,10 +2,10 @@
 
   <div class="row">
     <div class="col-xs-6">
-      <%= f.input :name, placeholder: 'Name' %>
+      <%= f.input :name, placeholder: 'e.g Carbonara' %>
     </div>
     <div class="col-xs-6">
-      <%= f.input :cuisine, placeholder: 'Cuisine type' %>
+      <%= f.input :cuisine, placeholder: 'e.g Italian' %>
     </div>
   </div>
 
@@ -13,10 +13,10 @@
 
   <div class="row">
     <div class="col-xs-6">
-      <%= f.input :duration, placeholder: 'Time needed' %>
+      <%= f.input :duration, placeholder: 'mins' %>
     </div>
     <div class="col-xs-6">
-      <%= f.input :servings, placeholder: 'Servings' %>
+      <%= f.input :servings, placeholder: 'How many can eat?' %>
     </div>
   </div>
 
@@ -25,14 +25,14 @@
     <%= f.simple_fields_for :quantities do |q| %>
         <%= render 'quantity_fields', f: q %>
         <div class="links">
-          <%= link_to_add_association 'add ingredient', f, :quantities, class: 'btn btn-success full-width', id: 'add-new-quantity' %>
+          <%= link_to_add_association 'add ingredient', f, :quantities, class: 'btn btn-success full-width-q', id: 'add-new-quantity' %>
         </div>
     <% end %>
   </div>
   <br>
   <%= f.input :photo %>
   <div class="text-center">
-    <%= f.button :submit, class: 'btn btn-primary full-width' %>
+    <%= f.button :submit, class: 'full-width' %>
   </div>
 <% end %>
 
