@@ -9,13 +9,12 @@ inputSeach.addEventListener('input', () => {
 })
 
 $(window).scroll(function(){
-  if ($(window).scrollTop() >= 426) {
+  if ($(window).scrollTop() >= 366) {
      $('nav').addClass('fixed-header');
-     $('.cards').addClass('container-after-scroll');
-  }
-  else {
+     // $('.cards').addClass('container-after-scroll');
+  } else {
      $('nav').removeClass('fixed-header');
-     $('.cards').removeClass('container-after-scroll');
+     // $('.cards').removeClass('container-after-scroll');
   }
 });
 
@@ -29,33 +28,45 @@ $(window).scroll(function(event){
     didScroll = true;
 });
 
-setInterval(function() {
-    if (didScroll) {
-        hasScrolled();
-        didScroll = false;
-    }
-}, 250);
 
-function hasScrolled() {
-    let st = $(this).scrollTop();
 
-    // Make sure they scroll more than delta
-    if(Math.abs(lastScrollTop - st) <= delta)
-        return;
-
-    // If they scrolled down and are past the navbar, add class .nav-up.
-    // This is necessary so you never see what is "behind" the navbar.
-    if (st > lastScrollTop && st > footerHeight){
-        // Scroll Down
-        $('#foot').addClass('hidden');
+var previousScroll = 0;
+$(window).scroll(function(e){
+    if ($(this).scrollTop() < previousScroll) {
+        $('#foot').slideDown();
     } else {
-        // Scroll Up
-        if(st + $(window).height() < $(document).height()) {
-            $('#foot').removeClass('hidden');
-        }
+        $('#foot').slideUp();
     }
+    previousScroll = $(this).scrollTop()
+});
 
-    lastScrollTop = st;
-}
+// setInterval(function() {
+//     if (didScroll) {
+//         hasScrolled();
+//         didScroll = false;
+//     }
+// }, 250);
+
+// function hasScrolled() {
+//     let st = $(this).scrollTop();
+
+//     // Make sure they scroll more than delta
+//     if(Math.abs(lastScrollTop - st) <= delta)
+//         return;
+
+//     // If they scrolled down and are past the navbar, add class .nav-up.
+//     // This is necessary so you never see what is "behind" the navbar.
+//     if (st > lastScrollTop && st > footerHeight){
+//         // Scroll Down
+//         $('#foot').slideDown();
+//     } else {
+//         // Scroll Up
+//         if(st + $(window).height() < $(document).height()) {
+//             $('#foot').slideUp();
+//         }
+//     }
+
+//     lastScrollTop = st;
+// }
 
 
