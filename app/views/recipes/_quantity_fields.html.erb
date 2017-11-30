@@ -3,7 +3,7 @@
     <%= f.association :ingredient, collection: Ingredient.all, prompt: 'Choose or add ingredient', input_html: { class: 'ingredient-dropdown' } %>
   </div>
   <div class="f-item-q">
-    <%=  f.input :quantity, placeholder: 'e.g 200g' %>
+    <%=  f.input :quantity, placeholder: 'e.g 200g', input_html: { class: 'radius-15' } %>
   </div>
   <div class="f-item">
     <%= link_to_remove_association f, class: "trash-icon-q" do %>
