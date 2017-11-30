@@ -24,14 +24,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   .f-item-i {
     flex: 0 0 210px !important;
     border-radius: 15px !important
   }
   .f-item-q {
     flex: 0 0 90px !important;
-    border-radius: 15px !important
+    border-radius: 15px !important;
   }
   .trash-icon {
     position: absolute;
@@ -42,12 +41,4 @@
     }
   }
 }
-// .f-container {
-//   display: flex;
-//   position: absolute;
-// }
-
-// .f-item {
-//   position: relative;
-// }
 
