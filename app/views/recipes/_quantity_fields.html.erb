@@ -1,6 +1,6 @@
 <div class="quantities-fields nested-fields">
   <div class="f-item-i">
-    <%= f.association :ingredient, collection: Ingredient.all, prompt: 'Choose or add ingredient', input_html: { class: 'ingredient-dropdown' }%>
+    <%= f.association :ingredient, collection: Ingredient.all, prompt: 'Choose or add ingredient', input_html: { class: 'ingredient-dropdown' } %>
   </div>
   <div class="f-item-q">
     <%=  f.input :quantity, placeholder: 'e.g 200g' %>

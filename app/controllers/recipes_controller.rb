@@ -85,6 +85,7 @@ class RecipesController < ApplicationController
   end
 
   def update
+
    @recipe.update(recipe_params)
    redirect_to recipe_path(@recipe)
   end
@@ -109,7 +110,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo, :photo_cache, :method)
+   params.require(:recipe).permit(:name, :description, :duration, :cuisine, :servings, :photo, :photo_cache, :method, :quantities_attributes => {})
   end
 end
 
