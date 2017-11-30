@@ -25,45 +25,40 @@
 </div>
 
 <!-- STYLES ALL CARDS -->
-<div class="wrapper">
-
-  <div class="tbs">
-    <a class="tb active" id="tb-favourite" href="#">
-      <p>Favourites</p>
-    </a>
-    <a class="tb" id="tb-recipe" href="#">
-      <p>Your recipes</p>
-    </a>
-  </div>
+<div class="tbs">
+  <a class="tb active" id="tb-favourite" href="#">
+    <p>Favourites</p>
+  </a>
+  <a class="tb" id="tb-recipe" href="#">
+    <p>Your recipes</p>
+  </a>
+</div>
 
 <!-- LISTS YOUR FAVOURITE RECIPES -->
-  <div class="container" id="cont-favourite">
-    <div class="row">
-      <% @recipes.each do |recipe| %>
-        <%= render 'recipes/recipe_card', recipe: recipe, user: current_user %>
-      <% end %>
-    </div>
+<div class="container" id="cont-favourite">
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <%= render 'recipes/recipe_card', recipe: recipe, user: current_user %>
+    <% end %>
   </div>
-
+</div>
 
 <!-- ADD YOUR OWN RECIPE -->
-  <div class="container hidden" id="cont-recipe">
-    <div class="col-xs-12 col-lg-12 offset-lg-1">
-      <div class="text-center">
-        <%= link_to new_recipe_path do %>
-        <i class="fa fa-plus-square" aria-hidden="true"></i> Add your own recipe
-        <% end %>
-      </div>
+<div class="cards container hidden" id="cont-recipe">
+  <div class="text-center">
+    <%= link_to new_recipe_path do %>
+    <i class="fa fa-plus-square" aria-hidden="true"></i> Add your own recipe
+    <% end %>
   </div>
 
-<!-- LISTS YOUR CREATED RECIPES -->
-  <div class="row">
-    <% @user.recipes.each do |recipe| %>
+  <!-- LISTS YOUR CREATED RECIPES -->
+  <div class="cards container">
+    <div class="row">
+      <% @user.recipes.each do |recipe| %>
         <%= render 'recipes/recipe_card', recipe: recipe, user: current_user %>
       <% end %>
     </div>
   </div>
-
 </div>
 
 <script>
