@@ -57,8 +57,8 @@
 
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
-  margin-top: 1px;
-  box-shadow: 1px 1px 4px #E6E6E6;
+  margin-top: 8px;
+  box-shadow: 1px 1px 1px #E6E6E6;
   border-color: #E6E6E6;
 }
 .navbar-wagon-dropdown-menu li > a {
@@ -66,8 +66,8 @@
   font-weight: lighter !important;
   color: #999999 !important;
   font-size: 15px !important;
-  line-height: 22px !important;
-  padding: 10px 20px;
+  line-height: 10px !important;
+  padding: 10px 10px;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
@@ -79,7 +79,7 @@
   width: 10px;
   position: absolute;
   right: 10px;
-  top: -6px;
+  top: -66px;
   background-color: white;
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
