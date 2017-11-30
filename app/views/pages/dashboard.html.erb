@@ -20,11 +20,12 @@
         <% full_name = current_user.first_name + " " + current_user.last_name %>
         <%= full_name %>
       </div>
-
     </div>
   </div>
 </div>
 
+
+<!-- STYLES ALL CARDS -->
 <div class="wrapper">
   <div class="tbs">
     <a class="tb active" id="tb-favourite" href="#">
@@ -35,34 +36,35 @@
     </a>
   </div>
 
+<!-- LISTS YOUR FAVOURITE RECIPES -->
   <div class="container" id="cont-favourite">
     <div class="row">
       <% @recipes.each do |recipe| %>
-        <div class="col-xs-12 col-sm-6 col-lg-4 index-card">
-          <%= render 'recipes/recipe_card', recipe: recipe, user: current_user %>
-        </div>
+        <%= render 'recipes/recipe_card', recipe: recipe, user: current_user %>
       <% end %>
     </div>
   </div>
 
-  <div class="container hidden" id="cont-recipe">
-    <div class="col-xs-12 col-lg-12 offset-lg-1"
-      <div class="text-center">
-        <%= link_to new_recipe_path do %>
-            <i class="fa fa-plus-square" aria-hidden="true"></i> Add your own recipe
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <% @user.recipes.each do |recipe| %>
-        <div class="col-xs-12 col-sm-6 col-lg-4 index-card">
-          <%= render 'recipes/recipe_card', recipe: recipe, user: current_user %>
-        </div>
+
+<!-- ADD YOUR OWN RECIPE -->
+<div class="container hidden" id="cont-recipe">
+  <div class="col-xs-12 col-lg-12 offset-lg-1">
+    <div class="text-center">
+      <%= link_to new_recipe_path do %>
+      <i class="fa fa-plus-square" aria-hidden="true"></i> Add your own recipe
       <% end %>
     </div>
-  </div>
-
 </div>
+
+<!-- LISTS YOUR CREATED RECIPES -->
+<div class="row">
+  <% @user.recipes.each do |recipe| %>
+      <%= render 'recipes/recipe_card', recipe: recipe, user: current_user %>
+    <% end %>
+  </div>
+</div>
+
+<!-- </div> -->
 
 <script>
   let favourite = document.getElementById('cont-favourite');
