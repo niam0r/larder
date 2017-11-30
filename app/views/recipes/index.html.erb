@@ -10,21 +10,21 @@
       <h1>Larder</h1>
       <h3>Eat more. Waste Less</h3>
       <p>Which ingredients do you have?</p>
+      <nav class="search">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <%= form_with url: recipes_path, method: :get, remote: true do |f| %>
+                <%= f.text_field :query, value: params[:query], class: 'form-control', id: 'inputSeach', autofocus: true, autocomplete: "off", placeholder: 'e.g. Salmon, leeks, potatoes...' %>
+                <%= f.submit 'Search', class: 'btn btn-primary hidden', id: 'submitSeachButton' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
   </div>
 
-  <nav class="search">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <%= form_with url: recipes_path, method: :get, remote: true do |f| %>
-            <%= f.text_field :query, value: params[:query], class: 'form-control', id: 'inputSeach', autofocus: true, autocomplete: "off", placeholder: 'e.g. Salmon, leeks, potatoes...' %>
-            <%= f.submit 'Search', class: 'btn btn-primary hidden', id: 'submitSeachButton' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </nav>
 
   <!-- set the form to go back to the recipes path but edit the method back to get to load index not the create action-->
   <!-- then add a text field tag for the search to display instance variable of search (in the recipes controller) and if there is nothing have a placeholder in the search box -->
