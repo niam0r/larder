@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
 
     if params[:query].present?
 
-      ingredients = params[:query].split(",")
+      ingredients = params[:query].split(" ")
 
       sql_condition = ingredients.map{|ingredient| "(name iLIKE '%#{ingredient.downcase}%' OR description iLIKE '%#{ingredient.downcase}%'
         OR method iLIKE '%#{ingredient.downcase}%')"}.join(" AND ")
