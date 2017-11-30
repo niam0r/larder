@@ -12,7 +12,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
-  <body class="<%= 'padded' unless (params[:controller] == "recipes" && params[:action] == "index") %>">
+  <body class="<%= params[:controller] == "recipes" && params[:action] == "index" ? 'blue-background' : 'padded' %>">
    <% if params[:controller] == "pages" && params[:action] == "home" %>
       <% nav_class = "transparent-navbar" %>
     <% else %>
