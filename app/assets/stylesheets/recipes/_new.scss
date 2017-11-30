@@ -1,0 +1,54 @@
+.form-post {
+  color: #333;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.form-post h3{
+  margin-bottom: 23px;
+}
+
+#recipe_name, #recipe_description, #recipe_servings, #recipe_method, #recipe_duration, #recipe_cuisine {
+  border-radius: 15px;
+  font-size: 12px;
+  &:focus {
+  color: black;
+  outline: none;
+  box-shadow: none;
+  border:1px solid $orange;
+  }
+}
+
+#recipe_quantities_attributes_0_quantity {
+  border-radius: 15px;
+  font-size: 12px;
+  &:focus {
+  color: black;
+  outline: none;
+  box-shadow: none;
+  border:1px solid $orange;
+  }
+}
+
+#select2-recipe_quantities_attributes_0_ingredient_id-container {
+  font-size: 12px;
+}
+
+.full-width {
+  width: 100% !important;
+  border-radius: 15px;
+  background-color: #ffa502;
+  color: white;
+  border-color:#ffa502;
+}
+
+.full-width-q {
+  border-radius: 15px;
+  width: 100% !important;
+  background-color: $larder-blue !important;
+  border-color: $larder-blue;
+}
+
+.trash-icon-q {
+  color: #333;
+}
