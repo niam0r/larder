@@ -46,9 +46,7 @@
 <!-- ADD YOUR OWN RECIPE -->
 <div class="cards container hidden" id="cont-recipe">
   <div class="text-center">
-    <%= link_to new_recipe_path do %>
-    <i class="fa fa-plus-square" aria-hidden="true"></i> Add your own recipe
-    <% end %>
+    <%= link_to 'Add your own recipe', new_recipe_path, class: 'btn add-recipe'  %>
   </div>
 
   <!-- LISTS YOUR CREATED RECIPES -->
