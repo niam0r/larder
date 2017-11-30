@@ -32,7 +32,7 @@ suffix_url_category = "?page="
 
 categories = [
   "five-ingredients-or-less",
-  "christmas-biscuits"
+  "student"
 ]
 
 # splits a "250g cherry tomatoes" into cherry tomatoes ingreident and 250g dose
