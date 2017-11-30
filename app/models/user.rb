@@ -29,6 +29,16 @@ class User < ApplicationRecord
     return user
   end
 
+  def photo_url
+    if facebook_picture_url
+      return facebook_picture_url
+    elsif avatar?
+      return avatar
+    else
+      return 'user-black_cvtqjq'
+    end
+  end
+
   mount_uploader :avatar, PhotoUploader
 
   # def favourited_recipes(recipe)
