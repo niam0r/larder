@@ -11,8 +11,14 @@
 
 .select2-selection {
   height: 39px !important;
+  border-radius: 15px;
   // width: 200px !important;
 }
+
+.select2-selection--single {
+  border-radius: 15px !important;
+}
+
 .quantities-fields {
   position: relative;
   display: flex;
