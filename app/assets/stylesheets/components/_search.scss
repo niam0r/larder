@@ -1,5 +1,13 @@
 #inputSeach {
   border-radius: 25px;
+  color: #333;
+  font-size: 12px;
+  &:focus {
+  color: black;
+  outline: none;
+  box-shadow: none;
+  border:1px solid $orange;
+  }
 }
 
 .fixed-header {
