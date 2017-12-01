@@ -24,8 +24,8 @@
          </table>
         <% end -%>
           <p class= "divider"> -------- or -------- </p>
-          <%= f.input :email, required: false, autofocus: true, :input_html => { :class => "login-form" } %>
-          <%= f.input :password, required: false, :input_html => { :class => "login-form" } %>
+          <%= f.input :email, required: false, autofocus: true, :input_html => { :class => "login-form-email" } %>
+          <%= f.input :password, required: false, :input_html => { :class => "login-form-password" } %>
           <%= render "devise/shared/forgot-password", id: 'forgot-password' %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
