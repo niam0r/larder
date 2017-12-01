@@ -3,29 +3,31 @@
 <% content_for :meta_image, cl_image_path(@recipe.photo.url) %>
 
 <div class="recipe-header">
-    <div class="card" style="background-image: url(<%= @recipe.photo %>);">
-      <div class="card-gradient show-card">
-        <div class="card-category">
-          <%= @recipe.name %>
+  <div class="card no-hover" style="background-image: url(<%= @recipe.photo %>);">
+    <div class="card-gradient show-card">
+      <div class="card-category">
+        <%= @recipe.name %>
+      </div>
+      <div class="card-info">
+        <div class="card-servings">
+          <%= image_tag('servings.svg', size: "20x20", alt: "Servings", class: "cut") %> <%= @recipe.servings %> servings
         </div>
-        <div class="card-info">
-          <div class="card-servings">
-            <%= image_tag('servings.svg', size: "20x20", alt: "Servings", class: "cut") %> <%= @recipe.servings %> servings
-          </div>
-          <div class="card-duration">
-            <%= image_tag('duration.svg', size: "20x20", alt: "Duration") %> <%= @recipe.duration %> min
-          </div>
+        <div class="card-duration">
+          <%= image_tag('duration.svg', size: "20x20", alt: "Duration") %> <%= @recipe.duration %> min
         </div>
+      </div>
 
-        <div class="card-favourite" id="recipe-<%= @recipe.id %>">
-          <% if current_user %>
-            <%= render 'favourites/favourite_button', favourite: current_user.favourite_for(@recipe), recipe: @recipe %>
-          <% else %>
-            <%= render 'favourites/favourite_button_not_logged_in' %>
-          <% end %>
-        </div>
+      <div class="card-favourite" id="recipe-<%= @recipe.id %>">
+        <% if current_user %>
+          <%= render 'favourites/favourite_button', favourite: current_user.favourite_for(@recipe), recipe: @recipe %>
+        <% else %>
+          <%= render 'favourites/favourite_button_not_logged_in' %>
+        <% end %>
+      </div>
 
-        <div class="fb-share-button" data-href="http://www.larder-recipes.co.uk/recipes/<%= @recipe.id %>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.larder-recipes.co.uk/recipes/<%= @recipe.id %>&src=sdkpreparse">Share</a></div>
+      <div class="fb-share-button" data-href="http://www.larder-recipes.co.uk/recipes/<%= @recipe.id %>" data-layout="button" data-size="large" data-mobile-iframe="true">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.larder-recipes.co.uk/recipes/<%= @recipe.id %>&src=sdkpreparse">Share</a>
+      </div>
     </div>
   </div>
 </div>
@@ -67,7 +69,6 @@
   </div>
 </div>
 
-
 <%= content_for(:after_js) do %>
   <script>
   function bindSweetAlertButtonDemo() {
@@ -87,9 +88,8 @@
     })
   })
   </script>
+
   <script>
-
-
   let ingredients = document.getElementById('cont-ingredients');
   let method = document.getElementById('cont-method');
   let tabIngredients = document.getElementById('tab-ingredients');
@@ -103,9 +103,7 @@
     method.classList.add('hidden');
     tabIngredients.classList.add("active");
     tabMethod.classList.remove("active");
-
   });
-
   tabMethod.addEventListener('click', (event) => {
     event.preventDefault();
     ingredients.classList.add("hidden");
@@ -115,6 +113,5 @@
     tabIngredients.classList.remove("active");
     tabMethod.classList.add("active");
   })
-</script>
-
+  </script>
 <% end %>
