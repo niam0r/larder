@@ -2,12 +2,10 @@
 
 <div class="container dashboard-info text-center">
   <div class="dropdown float-right">
-    <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" id="icon-white" ></i>
+    <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" id="icon-white" aria-haspopup="true" aria-expanded="false"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="/users/edit">Edit profile</a></li>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-        <% end %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'log-out-link' %>
       </ul>
   </div>
   <div class="row">

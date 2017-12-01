@@ -19,6 +19,7 @@ h2 {
 .float-right {
   display: flex;
   justify-content: flex-end;
+  margin-top: 10px;
 }
 
 .trashcan {
@@ -63,4 +64,13 @@ h2 {
   width: 75%;
   font-weight: lighter;
   margin-top: -10px;
+}
+
+.log-out-link {
+  color: #999999;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: lighter;
+  padding-left: 20px;
+  margin-bottom: -4px;
 }
