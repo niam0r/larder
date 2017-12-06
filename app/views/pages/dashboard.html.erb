@@ -5,6 +5,7 @@
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" id="icon-white" aria-haspopup="true" aria-expanded="false"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="/users/edit">Edit profile</a></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
   </div>
   <div class="row">
