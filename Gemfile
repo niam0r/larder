@@ -38,5 +38,5 @@ end
 
 
 gem 'cloudinary'
-gem 'carrierwave', '~> 1.3'
+gem 'carrierwave', '~> 2.2'
 gem 'algoliasearch-rails'
